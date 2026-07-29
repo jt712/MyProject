@@ -1,0 +1,175 @@
+body {
+ background:
+    radial-gradient(circle at top left, rgba(56, 189, 248, 0.16), transparent 24%),
+    linear-gradient(180deg, #041828 0%, #062640 100%);
+  color: white;
+  font-family: Inter, sans-serif;
+}
+
+.planner{
+    max-width: 3000px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 60px;
+}
+
+
+
+.planner-description{
+    /* display:flex; */
+    /* justify-content:space-between; */
+    /* align-items:flex-start; */
+    gap:80px;
+}
+
+.planner-description p{
+    flex:1;
+    color:#9ea8b8;
+    font-size:18px;
+    margin:0;
+    max-width:2000px;
+}
+
+.planner-title {
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.15;
+    margin-bottom: 32px;
+    margin-right: 0px;
+    white-space: nowrap;
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    padding: 0;
+    display: block;
+}
+
+.planner-hero h1 {
+  font-size: 64px;
+  font-weight: 700;
+  margin: 15px 0;
+}
+
+.planner-hero p {
+  color: #9ea8b8;
+}
+
+
+
+.tag {
+  color: #3fd4ff;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.tag h1{
+  margin-left: 0%;
+}
+
+.filters {
+  margin-top: 40px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.filters select {
+  width: 100%;
+  height: 50px;
+  background: #0d1626;
+  border: 1px solid #243447;
+  border-radius: 10px;
+  color: white;
+}
+
+.goal-box {
+  margin-top: 20px;
+  
+}
+
+.goal-box label{
+  color: black;
+}
+
+.goal-box textarea {
+  width: 100%;
+  height: 120px;
+  background: white;
+  border: 1px solid #243447;
+  border-radius: 10px;
+  color: black;
+}
+
+.cards-grid {
+  margin-top: 30px;
+  display: grid;
+  grid-template-columns: repeat(3, 450px);
+  justify-content: center;
+  gap: 24px;
+  align-items: stretch;
+}
+
+/* Responsive fallbacks */
+@media (max-width: 1400px) {
+  .cards-grid {
+    grid-template-columns: repeat(2, 450px);
+    justify-content: center;
+  }
+}
+
+@media (max-width: 980px) {
+  .cards-grid {
+    grid-template-columns: 450px;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 520px) {
+  .cards-grid {
+    grid-template-columns: 100%;
+    padding: 0 16px;
+    box-sizing: border-box;
+  }
+}
+
+.heading{
+  color: aqua;
+}
+
+.planner-hero{
+    position:relative;
+}
+
+.planner-topbar {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 16px;
+}
+
+.planner-tag {
+    color: #3fd4ff;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+}
+
+.close-btn3 {
+  position: absolute;
+  top: 20px;
+  right: 5px;
+  border: none;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.12);
+  color: #fff;
+}
+
+
+.close-btn3:hover {
+  transform: translateY(-2px);
+  background: rgba(255, 255, 255, 0.18);
+}

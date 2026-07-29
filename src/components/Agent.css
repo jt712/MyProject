@@ -1,0 +1,255 @@
+/* Professional Navbar */
+
+.terms-navbar {
+  height: 80px;
+
+  background: #020817;
+
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 50px;
+
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.terms-nav-left {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.terms-logo {
+  width: 48px;
+  height: 48px;
+  border-radius: 10px;
+}
+
+.terms-nav-left h3 {
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.terms-nav-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.nav-back-btn {
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.15);
+
+  color: white;
+
+  padding: 10px 18px;
+
+  border-radius: 10px;
+
+  cursor: pointer;
+
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.nav-back-btn:hover {
+  background: rgba(255,255,255,0.08);
+}
+
+.nav-contact-btn {
+  border: none;
+
+  background: linear-gradient(
+    90deg,
+    #38bdf8,
+    #8b5cf6
+  );
+
+  color: white;
+
+  padding: 10px 20px;
+
+  border-radius: 10px;
+
+  cursor: pointer;
+
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.nav-contact-btn:hover {
+  transform: translateY(-2px);
+}
+
+/* Page Background */
+.education-agent-container {
+  min-height: 100vh;
+  background: #f5f7fb;
+  padding: 50px 20px;
+}
+
+/* Hero Section */
+.hero-section {
+  max-width: 900px;
+  margin: 0 auto 40px;
+  text-align: center;
+}
+
+.agent-badge {
+  display: inline-block;
+  background: #e8efff;
+  color: #2563eb;
+  padding: 8px 18px;
+  border-radius: 30px;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.hero-section h1 {
+  font-size: 48px;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 15px;
+}
+
+.hero-section p {
+  font-size: 18px;
+  color: #64748b;
+  max-width: 650px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+/* Query Card */
+.query-card {
+  max-width: 1000px;
+  margin: auto;
+  background: #ffffff;
+  padding: 35px;
+  border-radius: 24px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+}
+
+/* Textarea */
+.query-card textarea {
+  width: 100%;
+  border: 1px solid #dbe3f0;
+  border-radius: 16px;
+  padding: 18px;
+  font-size: 16px;
+  color: #1e293b;
+  resize: vertical;
+  min-height: 180px;
+  outline: none;
+  transition: 0.3s;
+}
+
+.query-card textarea:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 4px rgba(37,99,235,0.1);
+}
+
+/* Button */
+.query-card button {
+  margin-top: 20px;
+  background: #2563eb;
+  color: white;
+  border: none;
+  padding: 14px 28px;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.query-card button:hover {
+  background: #1d4ed8;
+  transform: translateY(-2px);
+}
+
+/* Loading */
+.query-card > p {
+  margin-top: 20px;
+  color: #2563eb;
+  font-weight: 600;
+}
+
+/* Response Card */
+.response-card {
+  margin-top: 30px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 20px;
+  padding: 30px;
+}
+
+/* Metadata */
+.response-card p {
+  margin-bottom: 12px;
+  color: #334155;
+  font-size: 15px;
+}
+
+.response-card strong {
+  color: #0f172a;
+}
+
+/* AI Response */
+.response-card pre {
+  margin-top: 25px;
+  background: white;
+  border: 1px solid #e2e8f0;
+  padding: 20px;
+  border-radius: 12px;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  overflow-x: auto;
+  line-height: 1.8;
+  font-size: 15px;
+  color: #1e293b;
+}
+
+/* Download PDF Button */
+.response-card a {
+  display: inline-block;
+  margin-top: 20px;
+  background: #16a34a;
+  color: white;
+  text-decoration: none;
+  padding: 12px 22px;
+  border-radius: 10px;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.response-card a:hover {
+  background: #15803d;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hero-section h1 {
+    font-size: 34px;
+  }
+
+  .hero-section p {
+    font-size: 16px;
+  }
+
+  .query-card {
+    padding: 20px;
+  }
+
+  .response-card {
+    padding: 20px;
+  }
+}

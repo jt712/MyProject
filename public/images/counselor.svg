@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="Career counselor">
+  <g fill="#0f172a">
+    <path d="M32 54c0-22.5 15-40 32-40s32 17.5 32 40" fill="none" stroke="#0f172a" stroke-width="10" stroke-linecap="round"/>
+    <rect x="18" y="54" width="22" height="34" rx="10"/>
+    <rect x="88" y="54" width="22" height="34" rx="10"/>
+    <path d="M40 54c0 24 12 44 24 44s24-20 24-44" />
+    <rect x="38" y="60" width="24" height="14" rx="4"/>
+    <rect x="66" y="60" width="24" height="14" rx="4"/>
+    <rect x="62" y="66" width="4" height="4"/>
+    <path d="M40 78c0 14 12 34 24 34s24-20 24-34c-8 6-16 10-24 10s-16-4-24-10Z" />
+    <path d="M54 76c2 2 4 3 6 3s4-1 6-3" stroke="#111827" stroke-width="3" stroke-linecap="round" fill="none"/>
+    <path d="M44 88c0 10 10 22 20 22s20-12 20-22" />
+  </g>
+</svg>

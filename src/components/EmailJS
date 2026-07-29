@@ -1,0 +1,15 @@
+<h2>New Contact Form Submission</h2>
+
+<p><strong>Name:</strong> {{from_name}}</p>
+
+<p><strong>Mobile:</strong> {{mobile}}</p>
+
+<p><strong>Email:</strong> {{email}}</p>
+
+<p><strong>Area Of Interest:</strong> {{interest}}</p>
+
+<p><strong>Timeline:</strong> {{timeline}}</p>
+
+<p><strong>Message:</strong></p>
+
+<p>{{message}}</p>

@@ -1,0 +1,69 @@
+.header1 {
+  position: relative;
+
+  width: 100%;
+  height: 260px;
+
+  background: #fff;
+  border-bottom: 1px solid #e5e7eb;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  box-sizing: border-box;
+}
+
+/* Logo at top-left */
+.header1 img {
+  position: absolute;
+  top: 20px;
+  left: 30px;
+
+  width: 170px;
+  height: auto;
+
+  object-fit: contain;
+}
+
+/* Content centered */
+.header1-content {
+  width: 100%;
+  max-width: 900px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  text-align: center;
+
+  padding: 0 40px;
+}
+
+.header1-content h1 {
+  margin: 0;
+
+  font-size: 32px;
+  font-weight: 700;
+  color: #1f2937;
+
+  line-height: 1.3;
+   border-radius: 0; /* Removes circular shape */
+   object-fit: contain; /* Keeps image proportions */ 
+   background: transparent; 
+   border: none; 
+   box-shadow: none;
+
+}
+
+.header1-content p {
+  margin-top: 14px;
+
+  font-size: 16px;
+  color: #6b7280;
+
+  line-height: 1.6;
+  max-width: 760px;
+}

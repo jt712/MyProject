@@ -1,0 +1,57 @@
+.main {
+  flex: 1;
+  overflow-y: auto;
+display: flex;
+  align-items: center;
+  padding: 30px;
+  height:250px;
+  background: #f5f7fb;
+}
+
+.main section {
+  margin-bottom: 30px;
+}
+
+.main h2 {
+  font-size: 26px;
+  margin-bottom: 20px;
+  color: #222;
+}
+
+.preview {
+  background: #eef5ff;
+  border: 1px solid #d6e5ff;
+  border-radius: 10px;
+  padding: 20px;
+  min-height: 60px;
+
+  color: #1d3a5f;
+  font-size: 18px;
+}
+
+.chat-box {
+  height: 300px;
+  overflow-y: auto;
+
+  background: white;
+
+  border: 1px solid #ddd;
+  border-radius: 10px;
+
+  padding: 20px;
+}
+
+.user {
+  background: #dbeafe;
+  margin-bottom: 12px;
+  padding: 12px 18px;
+  border-radius: 10px;
+  text-align: right;
+}
+
+.assistant {
+  background: #f3f4f6;
+  margin-bottom: 12px;
+  padding: 12px 18px;
+  border-radius: 10px;
+}

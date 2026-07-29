@@ -1,0 +1,99 @@
+.contact-section {
+ background:
+    radial-gradient(circle at top left, rgba(56, 189, 248, 0.16), transparent 24%),
+    linear-gradient(180deg, #041828 0%, #062640 100%);
+  padding: 50px 20px;
+  display: flex;
+  justify-content: center;
+  
+}
+
+.contact-card {
+  width: 100%;
+  max-width: 700px;
+  background:#e9e7f0;
+  border: 1px solid #334155;
+  border-radius: 20px;
+  padding: 40px;
+  color: white;
+}
+
+.contact-card h2 {
+  margin-bottom: 15px;
+  font-size: 34px;
+  color: #000;
+}
+
+.contact-card p {
+  color: #000;
+  margin-bottom: 15px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  color: #000;
+  margin-top: 15px;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+input,
+select,
+textarea {
+  background: white;
+  border: 1px solid #334155;
+  border-radius: 10px;
+  padding: 14px;
+  color: white;
+  font-size: 15px;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: #38bdf8;
+}
+
+button {
+  margin-top: 25px;
+  background: linear-gradient(
+    90deg,
+    #38bdf8,
+    #8b5cf6
+  );
+  border: none;
+  padding: 15px;
+  border-radius: 12px;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+.contact-footer {
+  margin-top: 25px;
+}
+
+.contact-footer p {
+  color: white;
+  margin: 5px 0;
+}
+
+@media (max-width: 768px) {
+  .contact-card {
+    padding: 20px;
+  }
+
+  .contact-card h2 {
+    font-size: 28px;
+  }
+}

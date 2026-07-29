@@ -1,0 +1,55 @@
+.footer1 {
+  background: #fff;
+  padding: 20px 30px;
+  border-top: 1px solid #e5e7eb;
+  height:350px;
+}
+
+.input-container {
+  width: 100%;
+}
+
+.input-container h2 {
+  margin: 30px 0 15px 0;
+  font-size: 22px;
+  color: #111827;
+  font-weight: 600;
+}
+
+.input-container input {
+  width: 100%;
+  margin-top:40px;
+  height: 65px;
+  padding: 0 70px 0 18px;
+  border: 2px solid #2d7ef7;
+  border-radius: 35px;
+  font-size: 16px;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.input-container input:focus {
+  border-color: #1d4ed8;
+}
+
+.input-container button {
+  position: absolute;
+  right: 12px;
+  bottom: 10px;
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 50%;
+  background: #2d7ef7;
+  color: #fff;
+  font-size: 22px;
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.input-container {
+  position: relative;
+}

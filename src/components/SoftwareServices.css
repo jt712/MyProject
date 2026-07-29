@@ -1,0 +1,339 @@
+.software-section {
+  position: relative;
+  background:
+    radial-gradient(circle at top left, rgba(56, 189, 248, 0.16), transparent 24%),
+    linear-gradient(180deg, #041828 0%, #062640 100%);
+  color: var(--color-text-primary);
+  font-family: var(--font-family-primary);
+  max-width: 2000px;
+  margin: 0 auto;
+  padding: 64px 32px 84px ;
+  overflow: hidden;
+}
+
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 24px;
+}
+
+.badge {
+  background: #ffffff;
+  color: #0f172a;
+  padding: 10px 16px;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  margin-left: 143px;
+}
+
+.close-btn2 {
+  position: absolute;
+  top: 20px;
+  right: 190px; /* Adjust as needed */
+  padding: 10px 18px;
+  border: none;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.12);
+  color: #fff;
+  cursor: pointer;
+}
+
+.close-btn2:hover {
+  transform: translateY(-2px);
+  background: rgba(255, 255, 255, 0.18);
+}
+
+
+.header {
+  max-width: 3000px;
+  margin-bottom: 18px;
+  font-weight: 500px;
+  margin-left: 145px;
+}
+
+.header h1 {
+  font-family: var(--font-family-primary);
+  font-size: clamp(2.4rem, 4vw, 3.4rem);
+  font-weight: 300;
+  line-height: 1.05;
+  margin: 0;
+  color: var(--color-text-primary);
+  letter-spacing: var(--letter-spacing-tight);
+  max-width: 760px;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  padding: 0;
+  display: block;
+}
+
+.software-section h1 {
+  font-size: 35px;
+  line-height: 1.04;
+  font-weight: 300;
+  margin: 0 0 18px;
+  color: #f8fafc;
+}
+
+.subtitle {
+  color: #cbd5e1;
+  font-size: 1.02rem;
+  line-height: 1.75;
+  max-width: 2000px;
+  margin-bottom: 32px;
+  margin-left: 145px;
+}
+
+.outcomes {
+  display: grid;
+  grid-template-columns: max-content minmax(0, 1fr);
+  gap: 14px;
+  align-items: center;
+  margin-bottom: 34px;
+  margin-left: 140px;
+}
+
+.outcomes span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #eff6ff;
+  color: #0f172a;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  border-radius: 999px;
+  padding: 10px 18px;
+  font-size: 0.88rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+.outcomes p {
+  margin: 0;
+  color: #475569;
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 cards per row */
+  gap: 24px; /* Space between cards */
+  max-width: 1200px; /* Controls overall width */
+  margin: 24px auto 0 130px; /* Centers the grid */
+}
+
+.service-card {
+  width: 100%;
+  background: #ffffff;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  box-shadow: 0 18px 44px rgba(15, 23, 42, 0.08);
+  border-radius: 24px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  min-height: 330px;
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(79, 209, 255, 0.28);
+  box-shadow: 0 28px 84px rgba(15, 23, 42, 0.12);
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.card-header span:first-child {
+  font-size: 0.82rem;
+  color: #475569;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+.card-header span:last-child {
+  font-size: 1.35rem;
+}
+
+.service-card h3 {
+  font-size: 1.2rem;
+  margin: 0 0 12px;
+  line-height: 1.25;
+  color: #0f172a;
+}
+
+.service-card p {
+  margin: 0 0 16px;
+  color: #475569;
+  line-height: 1.7;
+  font-size: 0.96rem;
+}
+
+.service-card ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 10px;
+  flex: 1;
+}
+
+.service-card li {
+  position: relative;
+  margin: 0;
+  padding-left: 22px;
+  color: #475569;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.service-card li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  top: 0.2rem;
+  color: var(--color-accent-primary);
+  font-size: 1.1rem;
+  line-height: 1;
+}
+
+.service-card a {
+  margin-top: 16px;
+  color: var(--color-accent-primary);
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.96rem;
+  letter-spacing: 0.01em;
+  transition: color 0.2s ease;
+}
+
+.service-card a:hover {
+  color: var(--color-accent-secondary);
+}
+
+.how-it-works2 {
+  margin-top: 64px;
+  max-width: 500px;
+  margin-left: 120px;
+   color: #38bdf8;
+  font-size: 12px;
+  font-weight: 700;
+  
+  letter-spacing: 0.18em;
+}
+
+
+.wins h6 {
+  color: #38bdf8;
+  font-size: 0.92rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  /* margin: 0 0 14px; */
+  margin-left: 120px;
+}
+
+.how-it-works2 p {
+  color: #cbd5e1;
+  font-size: 1rem;
+  line-height: 1.8;
+  margin-right:10px;
+  white-space: nowrap;
+}
+
+.wins {
+  margin-top: 50px;
+}
+
+.wins-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 350px));
+  gap: 50px;
+  margin: 20px auto 0;
+  /* justify-content: center; Centers the cards */
+  margin-left: 110px; /* Aligns the cards to the left */
+}
+
+.win-card {
+  width: 350px;
+  background: #ffffff;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  border-radius: 22px;
+  padding: 22px;
+  height: 130px;
+  box-shadow: 0 16px 36px rgba(15, 23, 42, 0.08);
+}
+.win-card h3 {
+  font-size: 1.2rem;
+  margin: 0 0 10px;
+  color: #0f172a;
+}
+
+.win-card p {
+  margin: 0;
+  color: #475569;
+  line-height: 1.75;
+  font-size: 0.98rem;
+}
+
+@media (max-width: 1080px) {
+  .software-section {
+    padding: 56px 24px 72px;
+  }
+
+  .services-grid,
+  .wins-grid {
+    grid-template-columns: repeat(2, minmax(240px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .software-section {
+    padding: 48px 20px 60px;
+  }
+
+  .top-bar,
+  .outcomes {
+    grid-template-columns: 1fr;
+    justify-content: stretch;
+  }
+
+  .services-grid,
+  .wins-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .software-section h1 {
+    font-size: clamp(2.4rem, 6vw, 3.2rem);
+  }
+}
+
+@media (max-width: 560px) {
+  .software-section {
+    padding: 36px 16px 40px;
+  }
+
+  .service-card,
+  .win-card {
+    padding: 22px;
+  }
+
+  .outcomes {
+    gap: 12px;
+  }
+}
