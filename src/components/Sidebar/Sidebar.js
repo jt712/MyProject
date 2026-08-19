@@ -1,228 +1,606 @@
+
 import "./Sidebar.css";
+
 import { useState } from "react";
-import { sendChat } from "../services/api";
 
-function Sidebar({ profile, setProfile }) {
-  const [showSidebar, setShowSidebar] = useState(true);
+import {
+  sendCounselRequest,
+} from "../services/api";
 
- const handleGenerateReport = async () => {
-  try {
-    const response = await sendChat({
-      prompt:
-        "Generate my initial baseline preference sheet layout mapping with exactly 10 dream, 10 target and 10 safety choices sequentially.",
-      ui_percentile: profile.ui_percentile,
-      ui_category: profile.ui_category,
-      ui_stream: profile.ui_stream,
-      ui_pwd: profile.ui_pwd,
-      ui_city: profile.ui_city,
-      ui_gender: profile.ui_gender,
-      ui_university: profile.ui_university,
-    });
 
-    console.log(response);
+function Sidebar({
+  profile,
+  setProfile,
+  setMessages,
+}) {
 
-    alert(response.reply);
+  const [open, setOpen] =
+    useState(true);
 
-    // Later:
-    // setReport(response.preview_data);
+  const [loading, setLoading] =
+    useState(false);
 
-  } catch (err) {
-    console.error(err);
 
-    if (err.response) {
-      alert(err.response.data.detail);
-    } else {
-      alert("Unable to connect to server.");
-    }
-  }
-};
+  /* =====================================================
+     UPDATE PROFILE
+  ===================================================== */
+
+  const updateProfile = (
+    field,
+    value
+  ) => {
+
+    setProfile((previous) => ({
+      ...previous,
+
+      [field]: value,
+    }));
+  };
+
+
+  /* =====================================================
+     GENERATE COUNSELLING REPORT
+  ===================================================== */
+
+  const handleGenerateReport =
+    async () => {
+
+      try {
+
+        setLoading(true);
+
+        /*
+          Clear previous messages
+        */
+
+        setMessages([]);
+
+        console.log(
+          "Profile sent to backend:",
+          profile
+        );
+
+
+        /*
+          Call /counsel
+        */
+
+        const response =
+          await sendCounselRequest(
+            profile
+          );
+
+
+        console.log(
+          "Backend response:",
+          response
+        );
+
+
+        /*
+          Get response text
+        */
+
+        let messageText =
+          "";
+
+
+        if (
+          response?.summary
+        ) {
+
+          messageText =
+            response.summary;
+
+        } else if (
+          response?.reply
+        ) {
+
+          messageText =
+            response.reply;
+
+        } else if (
+          response?.message
+        ) {
+
+          messageText =
+            response.message;
+
+        } else if (
+          response?.response
+        ) {
+
+          messageText =
+            response.response;
+
+        } else {
+
+          messageText =
+            "Recommendations generated successfully.";
+        }
+
+
+        /*
+          Save result into messages
+        */
+
+        setMessages([
+          {
+            id:
+              Date.now(),
+
+            type:
+              "bot",
+
+            sender:
+              "Counsellor",
+
+            text:
+              messageText,
+
+            data:
+              response,
+
+            sessionId:
+              response?.session_id,
+          },
+        ]);
+
+      } catch (error) {
+
+        console.error(
+          "Generate Report Error:",
+          error
+        );
+
+
+        setMessages([
+          {
+            id:
+              Date.now(),
+
+            type:
+              "error",
+
+            sender:
+              "System",
+
+            text:
+              error?.message ||
+              "Unable to connect to counselling server. Please check whether the backend is running.",
+          },
+        ]);
+
+
+        alert(
+          error?.message ||
+          "Unable to connect to server. Please make sure FastAPI is running on port 8000."
+        );
+
+      } finally {
+
+        setLoading(false);
+      }
+    };
+
 
   return (
-    <>
-     {!showSidebar && (
-  <button
-    className="toggle-btnn floating"
-    onClick={() => setShowSidebar(true)}
-  >
-    &raquo;
-  </button>
 
-  
-)}
+    <div
+      className={`sidebar-container ${
+        open
+          ? "open"
+          : "close"
+      }`}
+    >
 
-                  <button
-  className="toggle-btnn"
-  onClick={() => setShowSidebar(false)}
->
-  &laquo;
-</button>
-     
-      {showSidebar && (
-        
+      {/* =================================================
+          HEADER
+      ================================================= */}
+
+      <div
+        className="candidate-header"
+        onClick={() =>
+          setOpen(!open)
+        }
+      >
+
+        <span className="header-icon">
+          ☰
+        </span>
+
+        <span className="header-label">
+          Candidate Profile Controls
+        </span>
+
+      </div>
+
+
+      {/* =================================================
+          SIDEBAR CONTENT
+      ================================================= */}
+
+      {open && (
+
         <div className="sidebar">
-  
-          <div className="sidebar-header">
-            <h2>📋 Candidate Profile Controls</h2>
 
-          
-          </div>
+          {/* =============================================
+              PERCENTILE
+          ============================================= */}
 
-          <label className="label">MHT-CET Percentile Score</label>
+          <label className="label">
+            MHT-CET Percentile Score
+          </label>
+
           <input
             type="number"
-            value={profile.ui_percentile}
+
+            step="0.01"
+
+            min="0"
+
+            max="100"
+
+            value={
+              profile.ui_percentile
+            }
+
             onChange={(e) =>
-              setProfile({
-                ...profile,
-                ui_percentile: Number(e.target.value),
-              })
+              updateProfile(
+                "ui_percentile",
+                Number(
+                  e.target.value
+                )
+              )
             }
           />
 
-          {/* <label>JEE Percentile Score</label>
+
+          {/* =============================================
+              CATEGORY
+          ============================================= */}
+
+          <label className="label">
+            Caste Reservation Pool
+          </label>
+
+          <select
+            className="custom-select"
+
+            value={
+              profile.ui_category
+            }
+
+            onChange={(e) =>
+              updateProfile(
+                "ui_category",
+                e.target.value
+              )
+            }
+          >
+
+            <option value="OPEN">
+              OPEN
+            </option>
+
+            <option value="OBC">
+              OBC
+            </option>
+
+            <option value="SC">
+              SC
+            </option>
+
+            <option value="ST">
+              ST
+            </option>
+
+            <option value="EWS">
+              EWS
+            </option>
+
+            <option value="NT-A">
+              NT-A
+            </option>
+
+            <option value="NT-B">
+              NT-B
+            </option>
+
+            <option value="NT-C">
+              NT-C
+            </option>
+
+            <option value="NT-D">
+              NT-D
+            </option>
+
+            <option value="VJ">
+              VJ
+            </option>
+
+            <option value="SBC">
+              SBC
+            </option>
+
+          </select>
+
+
+          {/* =============================================
+              GENDER
+          ============================================= */}
+
+          <label className="label">
+            Gender
+          </label>
+
+          <select
+            className="custom-select"
+
+            value={
+              profile.ui_gender
+            }
+
+            onChange={(e) =>
+              updateProfile(
+                "ui_gender",
+                e.target.value
+              )
+            }
+          >
+
+            <option value="General Pool">
+              General Pool
+            </option>
+
+            <option value="Female">
+              Male
+            </option>
+
+            <option value="Female">
+              Female
+            </option>
+
+            <option value="Female">
+              Other
+            </option>
+
+          </select>
+
+
+          {/* =============================================
+              TARGET BRANCH
+          ============================================= */}
+
+          <label className="label">
+            Target Branch
+          </label>
+
+          <select
+            className="custom-select"
+
+            value={
+              profile.ui_stream
+            }
+
+            onChange={(e) =>
+              updateProfile(
+                "ui_stream",
+                e.target.value
+              )
+            }
+          >
+
+            <option value="Computer Engineering">
+              Computer Engineering
+            </option>
+
+            <option value="Computer Science and Engineering">
+              Computer Science and Engineering
+            </option>
+
+            <option value="Information Technology">
+              Information Technology
+            </option>
+
+            <option value="Artificial Intelligence">
+              Artificial Intelligence
+            </option>
+
+            <option value="Artificial Intelligence and Data Science">
+              Artificial Intelligence and Data Science
+            </option>
+
+            <option value="Data Science">
+              Data Science
+            </option>
+
+            <option value="Cyber Security">
+              Cyber Security
+            </option>
+
+            <option value="Computer Science and Business Systems">
+              Computer Science and Business Systems
+            </option>
+
+            <option value="Electronics and Telecommunication Engineering">
+              Electronics and Telecommunication Engineering
+            </option>
+
+            <option value="Electronics Engineering">
+              Electronics Engineering
+            </option>
+
+            <option value="Electrical Engineering">
+              Electrical Engineering
+            </option>
+
+            <option value="Mechanical Engineering">
+              Mechanical Engineering
+            </option>
+
+            <option value="Civil Engineering">
+              Civil Engineering
+            </option>
+
+            <option value="Chemical Engineering">
+              Chemical Engineering
+            </option>
+
+            <option value="Instrumentation Engineering">
+              Instrumentation Engineering
+            </option>
+
+            <option value="Robotics and Automation">
+              Robotics and Automation
+            </option>
+
+          </select>
+
+
+          {/* =============================================
+              SEAT TYPE
+          ============================================= */}
+
+          <label className="label">
+            Seat / College Type
+          </label>
+
+          <select
+            className="custom-select"
+
+            value={
+              profile.ui_seat_type
+            }
+
+            onChange={(e) =>
+              updateProfile(
+                "ui_seat_type",
+                e.target.value
+              )
+            }
+          >
+
+            <option value="Any">
+              Any
+            </option>
+
+            <option value="Government">
+              Government
+            </option>
+
+            <option value="Government Aided">
+              Government Aided
+            </option>
+
+            <option value="Autonomous">
+              Autonomous
+            </option>
+
+            <option value="Private">
+              Private
+            </option>
+
+            <option value="Minority">
+              Minority
+            </option>
+
+          </select>
+
+
+          {/* =============================================
+              COLLEGE COUNT
+          ============================================= */}
+
+          <label className="label">
+            College Count
+          </label>
+
           <input
             type="number"
-            value={profile.JEE_Percentile}
-            onChange={(e) =>
-              setProfile({
-                ...profile,
-                JEE_Percentile: Number(e.target.value),
-              })
+
+            min="1"
+
+            max="100"
+
+            value={
+              profile.ui_college_count
             }
-          /> */}
 
-          <label className="label">Caste Reservation Pool</label>
-          <select
-            className="custom-select"
-            value={profile.ui_category}
+            placeholder="e.g. 30"
+
             onChange={(e) =>
-              setProfile({
-                ...profile,
-                ui_category: e.target.value,
-              })
-            }
-          >
-            <option value="OPEN">OPEN</option>
-            <option value="OBC">OBC</option>
-            <option value="SC">SC</option>
-            <option value="ST">ST</option>
-            <option value="EWS">EWS</option>
-            <option value="TFWS">TFWS</option>
-          </select>
-
-          <label className="label">Target Branches</label>
-          <select
-            className="custom-select"
-            value={profile.ui_stream}
-            onChange={(e) =>
-              setProfile({
-                ...profile,
-                ui_stream: e.target.value,
-              })
-            }
-          >
-            <option value="CS">Computer Science</option>
-            <option value="IT">Information Technology</option>
-            <option value="AI/ML">AI / ML</option>
-            <option value="DS">Data Science</option>
-            <option value="ENTC">ENTC</option>
-            <option value="MECH">Mechanical</option>
-            <option value="CIVIL">Civil</option>
-            <option value="ELECTRICAL">Electrical</option>
-          </select>
-
-          <div className="switch-row">
-            <span className="span">Registered PWD Status</span>
-
-            <label className="switch">
-              <input
-                type="checkbox"
-                checked={profile.ui_pwd}
-                onChange={(e) =>
-                  setProfile({
-                    ...profile,
-                    ui_pwd: e.target.checked,
-                  })
-                }
-              />
-              <span className="slider"></span>
-            </label>
-          </div>
-
-          <h3 className="h3">Optional Preferences</h3>
-
-          <label className="label">Preferred College</label>
-          <input
-            type="text"
-            placeholder="Any"
-            value={profile.ui_university}
-            onChange={(e) =>
-              setProfile({
-                ...profile,
-                ui_university: e.target.value,
-              })
+              updateProfile(
+                "ui_college_count",
+                Number(
+                  e.target.value
+                )
+              )
             }
           />
 
-          <label className="label">Preferred City</label>
+
+          {/* =============================================
+              PREFERRED CITY
+          ============================================= */}
+
+          <label className="label">
+            Preferred City
+          </label>
+
           <input
             type="text"
-            placeholder="Any"
-            value={profile.ui_city}
+
+            value={
+              profile.ui_city
+            }
+
+            placeholder="e.g. Pune, Mumbai, Nagpur"
+
             onChange={(e) =>
-              setProfile({
-                ...profile,
-                ui_city: e.target.value,
-              })
+              updateProfile(
+                "ui_city",
+                e.target.value
+              )
             }
           />
 
-          <label className="label">Gender</label>
 
-          <div className="radio-group">
-            <label className="radio-option">
-              <input
-                type="radio"
-                name="gender"
-                value="General Pool"
-                checked={profile.ui_gender === "General Pool"}
-                onChange={(e) =>
-                  setProfile({
-                    ...profile,
-                    ui_gender: e.target.value,
-                  })
-                }
-              />
-              <span className="span">General Pool</span>
-            </label>
+          {/* =============================================
+              PWD
+          ============================================= */}
 
-            <label className="radio-option">
-              <input
-                type="radio"
-                name="gender"
-                value="Female"
-                checked={profile.ui_gender === "Female"}
-                onChange={(e) =>
-                  setProfile({
-                    ...profile,
-                    ui_gender: e.target.value,
-                  })
-                }
-              />
-              <span>Female</span>
-            </label>
-          </div>
+         
 
-          <div
+
+          {/* =============================================
+              GENERATE BUTTON
+          ============================================= */}
+
+          <button
             className="report-btn"
-            onClick={handleGenerateReport}
+
+            onClick={
+              handleGenerateReport
+            }
+
+            disabled={
+              loading
+            }
           >
-            Direct Generate Report Sheet 🚀 
-          </div>
+
+            {loading
+              ? "Generating..."
+              : "Generate Report 🚀"}
+
+          </button>
+
         </div>
       )}
-    </>
+
+    </div>
   );
 }
+
 
 export default Sidebar;

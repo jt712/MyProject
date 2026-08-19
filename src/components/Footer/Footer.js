@@ -1,86 +1,311 @@
-import {useState} from "react";
 
 import "./Footer.css";
-import { sendChat } from "../services/api";
 
-function Footer({profile,messages,setMessages}){
+import {
+  useState,
+} from "react";
 
-const [prompt,setPrompt]=useState("");
+import {
+  sendFeedback,
+} from "../services/api";
 
-const handleSend=async()=>{
 
-if(prompt==="") return;
+function Footer({
+  profile,
+  messages,
+  setMessages,
+}) {
 
-const userMessage={
-role:"user",
-content:prompt
-};
+  const [input, setInput] =
+    useState("");
 
-setMessages(prev=>[...prev,userMessage]);
+  const [loading, setLoading] =
+    useState(false);
 
-try{
 
-const result=await sendChat({
+  /*
+    =====================================================
+    SEND FOLLOW-UP MESSAGE
+    =====================================================
+  */
 
-prompt,
+  const handleSendMessage =
+    async () => {
 
-...profile
+      const text =
+        input.trim();
 
-});
 
-setMessages(prev=>[
-...prev,
-{
-role:"assistant",
-content:result.reply
+      if (!text) {
+        return;
+      }
+
+
+      /*
+        Add user message
+      */
+
+      const userMessage = {
+
+        id:
+          Date.now(),
+
+        type:
+          "user",
+
+        sender:
+          "You",
+
+        text:
+          text,
+      };
+
+
+      setMessages(
+        (previous) => [
+          ...previous,
+          userMessage,
+        ]
+      );
+
+
+      setInput("");
+
+
+      try {
+
+        setLoading(
+          true
+        );
+
+
+        /*
+          Find latest counselling
+          response.
+        */
+
+        const latestBotMessage =
+          messages
+            ?.filter(
+              (message) =>
+                message.type ===
+                "bot"
+            )
+            ?.at(-1);
+
+
+        const sessionId =
+          latestBotMessage?.data
+            ?.session_id ||
+          latestBotMessage?.sessionId;
+
+
+        if (!sessionId) {
+
+          throw new Error(
+            "Please generate the counselling report first."
+          );
+        }
+
+
+        console.log(
+          "Sending feedback:",
+          {
+            session_id:
+              sessionId,
+
+            feedback:
+              text,
+          }
+        );
+
+
+        /*
+          Call /feedback
+        */
+
+        const response =
+          await sendFeedback(
+            sessionId,
+            text
+          );
+
+
+        console.log(
+          "Feedback response:",
+          response
+        );
+
+
+        /*
+          Extract counsellor response
+        */
+
+        const responseText =
+          response?.counsellor_response ||
+          response?.response ||
+          response?.reply ||
+          response?.message ||
+          response?.summary ||
+          "Counsellor updated your recommendations.";
+
+
+        /*
+          Add bot response
+        */
+
+        setMessages(
+          (previous) => [
+            ...previous,
+
+            {
+              id:
+                Date.now() + 1,
+
+              type:
+                "bot",
+
+              sender:
+                "Counsellor",
+
+              text:
+                responseText,
+
+              data:
+                response,
+
+              sessionId:
+                response?.session_id ||
+                sessionId,
+            },
+          ]
+        );
+
+      } catch (error) {
+
+        console.error(
+          "Feedback Error:",
+          error
+        );
+
+
+        setMessages(
+          (previous) => [
+            ...previous,
+
+            {
+              id:
+                Date.now() + 1,
+
+              type:
+                "error",
+
+              sender:
+                "System",
+
+              text:
+                error?.message ||
+                "Unable to process your request.",
+            },
+          ]
+        );
+
+      } finally {
+
+        setLoading(
+          false
+        );
+      }
+    };
+
+
+  /*
+    =====================================================
+    ENTER KEY
+    =====================================================
+  */
+
+  const handleKeyDown =
+    (e) => {
+
+      if (
+        e.key ===
+          "Enter" &&
+        !e.shiftKey
+      ) {
+
+        e.preventDefault();
+
+        handleSendMessage();
+      }
+    };
+
+
+  return (
+
+    <footer className="footerr">
+
+      <div className="footerr-inner">
+
+        {/* =================================================
+            INPUT
+        ================================================= */}
+
+        <input
+          type="text"
+
+          className="chat-input"
+
+          value={
+            input
+          }
+
+          onChange={(e) =>
+            setInput(
+              e.target.value
+            )
+          }
+
+          onKeyDown={
+            handleKeyDown
+          }
+
+          placeholder="Tell the agent how to adjust your list..."
+
+          disabled={
+            loading
+          }
+        />
+
+
+        {/* =================================================
+            SEND BUTTON
+        ================================================= */}
+
+        <button
+          className="send-btn"
+
+          onClick={
+            handleSendMessage
+          }
+
+          disabled={
+            loading ||
+            !input.trim()
+          }
+        >
+
+          {loading
+            ? "Sending..."
+            : "Send ➤"}
+
+        </button>
+
+      </div>
+
+    </footer>
+  );
 }
-]);
 
-}
-catch{
-
-setMessages(prev=>[
-...prev,
-{
-role:"assistant",
-content:"Unable to connect server."
-}
-]);
-
-}
-
-setPrompt("");
-
-};
-
-return(
-
-<div className="footer1">
-
-<div className="input-container">
-<h2>💬 Chat with your AI Counselor</h2>
-<input
-
-value={prompt}
-
-onChange={(e)=>setPrompt(e.target.value)}
-
-placeholder="Tell the agent how to adjust your list..."
-
-/>
-
-<button onClick={handleSend}>
-
-↑
-
-</button>
-
-</div>
-
-</div>
-
-);
-
-}
 
 export default Footer;

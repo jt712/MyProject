@@ -1,0 +1,73 @@
+*{
+    box-sizing:border-box;
+}
+
+.layout1{
+    display:flex;
+    height:100vh;
+    overflow:hidden;
+}
+
+/* Left Sidebar */
+
+.left-sidebar{
+    background:#f3f4f6;
+    transition:0.3s;
+    overflow:hidden;
+    position:relative;
+}
+
+.left-sidebar.open{
+    width:320px;
+}
+
+.left-sidebar.close{
+    width:45px;
+}
+
+/* Right Sidebar */
+
+.right-sidebar{
+    background:#f3f4f6;
+    transition:0.3s;
+    overflow:hidden;
+    position:relative;
+}
+
+.right-sidebar.open{
+    width:320px;
+}
+
+.right-sidebar.close{
+    width:45px;
+}
+
+/* Main */
+
+.main{
+    flex:1;
+    overflow:auto;
+    padding:20px;
+}
+
+/* Toggle Buttons */
+
+.toggle-btn{
+    position:absolute;
+    top:10px;
+    width:30px;
+    height:30px;
+    border:none;
+    cursor:pointer;
+    background:#2563eb;
+    color:white;
+    border-radius:5px;
+}
+
+.left-btn{
+    right:5px;
+}
+
+.right-btn{
+    left:5px;
+}

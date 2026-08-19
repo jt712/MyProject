@@ -1,0 +1,136 @@
+.right-sidebar {
+  height: 860px;
+  background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+  border-left: 1px solid #e5e7eb;
+  color: #111827;
+  width: 320px;
+  min-width: 320px;
+  overflow: hidden;
+  transition: width 0.3s ease;
+  box-sizing: border-box;
+}
+
+.right-sidebar span {
+  color: #111827;
+  text-align: center;
+}
+
+.right-sidebar.open {
+  width: 320px;
+  min-width: 320px;
+}
+
+.right-sidebar.close {
+  width: 45px;
+  min-width: 45px;
+  padding: 0;
+  border-left: none;
+  overflow: hidden;
+}
+
+.right-sidebar.close .right-sidebar-content {
+  display: none;
+}
+
+.right-sidebar.close .knowledge-header {
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+  width: 45px;
+  border-radius: 0 8px 8px 0;
+  border-left: 1px solid #e5e7eb;
+}
+
+.right-sidebar.close .knowledge-header span:first-child {
+  display: none;
+}
+
+.right-sidebar.close .knowledge-header span:last-child {
+  margin: 0;
+}
+
+.knowledge-header {
+  height: 46px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 15px;
+  margin: 10px;
+  border: 1px solid #dbe2ea;
+  border-radius: 10px;
+  cursor: pointer;
+  background: #ffffff;
+  font-size: 15px;
+  font-weight: 600;
+  color: #1f2937;
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.06);
+}
+
+.knowledge-header:hover {
+  background: #f8fafc;
+}
+
+.right-sidebar-content {
+  padding: 12px 15px 20px;
+}
+
+.right-sidebar-content h4 {
+  margin: 8px 0 16px;
+  font-size: 16px;
+  color: #1f2937;
+}
+
+.right-sidebar-content label {
+  display: block;
+  margin: 12px 0 8px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #4b5563;
+}
+
+.right-sidebar-content select,
+.right-sidebar-content option {
+  color: #111827;
+}
+
+.right-sidebar-content select {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  background: #fff;
+  font-size: 14px;
+}
+
+.upload-box {
+  border: 1px dashed #93c5fd;
+  border-radius: 10px;
+  background: #f8fbff;
+  padding: 18px;
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+.upload-box input[type="file"] {
+  width: 100%;
+  font-size: 13px;
+  color: #4b5563;
+}
+
+.upload-btn {
+  width: 100%;
+  margin-top: 14px;
+  padding: 10px 12px;
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(37, 99, 235, 0.2);
+}
+
+.upload-btn:hover {
+  background: linear-gradient(135deg, #1d4ed8 0%, #1e40af 100%);
+}

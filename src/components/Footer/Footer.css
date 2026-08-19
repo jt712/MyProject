@@ -1,55 +1,306 @@
-.footer1 {
-  background: #fff;
-  padding: 20px 30px;
+
+/* ====================================================
+   FOOTER
+===================================================== */
+
+.footerr {
+  width: 100%;
+  flex-shrink: 0;
+
+  background: #ffffff;
+
   border-top: 1px solid #e5e7eb;
-  height:350px;
-}
 
-.input-container {
-  width: 100%;
-}
+  padding: 12px 20px;
 
-.input-container h2 {
-  margin: 30px 0 15px 0;
-  font-size: 22px;
-  color: #111827;
-  font-weight: 600;
-}
-
-.input-container input {
-  width: 100%;
-  margin-top:40px;
-  height: 65px;
-  padding: 0 70px 0 18px;
-  border: 2px solid #2d7ef7;
-  border-radius: 35px;
-  font-size: 16px;
-  outline: none;
   box-sizing: border-box;
+
+  position: relative;
+  z-index: 100;
 }
 
-.input-container input:focus {
-  border-color: #1d4ed8;
-}
 
-.input-container button {
-  position: absolute;
-  right: 12px;
-  bottom: 10px;
-  width: 40px;
-  height: 40px;
-  border: none;
-  border-radius: 50%;
-  background: #2d7ef7;
-  color: #fff;
-  font-size: 22px;
-  cursor: pointer;
+/* =====================================================
+   FOOTER INNER
+===================================================== */
+
+.footerr-inner {
+  width: 100%;
+  max-width: 1600px;
+
+  margin: 0 auto;
 
   display: flex;
   align-items: center;
-  justify-content: center;
+
+  gap: 10px;
+
+  box-sizing: border-box;
 }
 
-.input-container {
-  position: relative;
+
+/* =====================================================
+   CHAT INPUT
+===================================================== */
+
+.footerr .chat-input {
+  flex: 1;
+
+  width: 100%;
+  min-width: 0;
+
+  height: 53px;
+
+  padding: 0 15px;
+
+  background: #ffffff;
+
+  color: #111827;
+
+  border: 1px solid #cbd5e1;
+
+  border-radius: 8px;
+
+  outline: none;
+
+  font-size: 14px;
+
+  font-family: Arial, sans-serif;
+
+  box-sizing: border-box;
 }
+
+
+.footerr .chat-input::placeholder {
+  color: #94a3b8;
+
+  opacity: 1;
+}
+
+
+.footerr .chat-input:focus {
+  border-color: #2563eb;
+
+  box-shadow:
+    0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+
+
+.footerr .chat-input:disabled {
+  background: #f1f5f9;
+
+  color: #94a3b8;
+
+  cursor: not-allowed;
+}
+
+
+/* =====================================================
+   SEND BUTTON
+===================================================== */
+
+.footerr .send-btn {
+  display: inline-flex;
+
+  margin-top:10px;
+
+  align-items: center;
+
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  width: 105px;
+
+  height: 46px;
+
+  padding: 0 18px;
+
+  background-color: #2563eb !important;
+
+  color: #ffffff !important;
+
+  border: 1px solid #2563eb !important;
+
+  border-radius: 8px;
+
+  outline: none;
+
+  font-size: 14px;
+
+  font-weight: 600;
+
+  font-family: Arial, sans-serif;
+
+  line-height: 1;
+
+  cursor: pointer;
+
+  opacity: 1;
+
+  visibility: visible;
+
+  box-sizing: border-box;
+
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+
+/* =====================================================
+   SEND BUTTON HOVER
+===================================================== */
+
+.footerr .send-btn:hover:not(:disabled) {
+  background-color: #1d4ed8 !important;
+
+  border-color: #1d4ed8 !important;
+
+  color: #ffffff !important;
+
+  transform: translateY(-1px);
+
+  box-shadow:
+    0 4px 10px rgba(37, 99, 235, 0.25);
+}
+
+
+/* =====================================================
+   SEND BUTTON ACTIVE
+===================================================== */
+
+.footerr .send-btn:active:not(:disabled) {
+  background-color: #1e40af !important;
+
+  border-color: #1e40af !important;
+
+  color: #ffffff !important;
+
+  transform: translateY(0);
+}
+
+
+/* =====================================================
+   SEND BUTTON DISABLED
+===================================================== */
+
+.footerr .send-btn:disabled {
+  background-color: #94a3b8 !important;
+
+  border-color: #94a3b8 !important;
+
+  color: #ffffff !important;
+
+  opacity: 1;
+
+  cursor: not-allowed;
+
+  transform: none;
+
+  box-shadow: none;
+}
+
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media (max-width: 900px) {
+
+  .footerr {
+    padding: 10px 15px;
+  }
+
+
+  .footerr-inner {
+    max-width: 100%;
+  }
+
+
+  .footerr .chat-input {
+    height: 44px;
+
+    font-size: 13px;
+  }
+
+
+  .footerr .send-btn {
+    width: 95px;
+
+    height: 44px;
+
+    font-size: 13px;
+  }
+
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 600px) {
+
+  .footerr {
+    padding: 10px;
+  }
+
+
+  .footerr-inner {
+    gap: 8px;
+  }
+
+
+  .footerr .chat-input {
+    height: 42px;
+
+    padding: 0 12px;
+
+    font-size: 13px;
+  }
+
+
+  .footerr .send-btn {
+    width: 82px;
+
+    height: 42px;
+
+    padding: 0 10px;
+
+    font-size: 12px;
+  }
+
+}
+
+
+/* =====================================================
+   SMALL MOBILE
+===================================================== */
+
+@media (max-width: 400px) {
+
+  .footerr-inner {
+    gap: 6px;
+  }
+
+
+  .footerr .chat-input {
+    font-size: 12px;
+  }
+
+
+  .footerr .send-btn {
+    width: 72px;
+
+    height: 40px;
+
+    padding: 0 7px;
+
+    font-size: 11px;
+  }
+
+}
+
