@@ -39,7 +39,6 @@ export default function Home(  { onOpenSolutions})
         setShowSoftwareServices(true)
       }
       onOpenContact={() => setShowContact(true)}
-      onOpenSolutions={() => setShowSolutions(true)}
        setActiveSection={setActiveSection} />
         {showContact && (
         <ContactForm />

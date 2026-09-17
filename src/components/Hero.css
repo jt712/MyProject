@@ -1,40 +1,37 @@
 
 .AI-image {
-    position: fixed;
-
+  position: relative;
+  display: block;
   width: 90px;
   height: 90px;
   border-radius: 50px;
-  margin-left: 100px;
+  margin: 0 auto;
   object-fit: contain;
   transition: transform 0.3s ease;
-  position: relative;
   background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.16), transparent 24%),
     linear-gradient(180deg, #041828 0%, #062640 100%);
 }
 
 .AI-image:hover {
   transform: scale(1.08);
-    animation: glow 1.5s infinite alternate;
-
+  animation: glow 1.5s infinite alternate;
 }
 
 .career-popup-wrapper {
   position: fixed;
-  bottom: 60px;   /* decrease to move down, increase to move up */
+  bottom: 60px;
   right: 30px;
   z-index: 9999;
-  /* height: 200px; */
-  width: 340px;
-  height: 480px;      /* Set a fixed height */
+  width: min(340px, calc(100vw - 24px));
+  height: 480px;
+  max-height: calc(100vh - 100px);
   background: #fff;
   border-radius: 22px;
   box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
   overflow: hidden;
-    box-sizing: border-box;
-
+  box-sizing: border-box;
 }
- 
+
 @keyframes glow {
   from {
     box-shadow:
@@ -48,5 +45,14 @@
       0 0 30px #38bdf8,
       0 0 50px #38bdf8,
       0 0 70px rgba(56, 189, 248, 0.8);
+  }
+}
+
+@media (max-width: 600px) {
+  .career-popup-wrapper {
+    right: 12px;
+    bottom: 12px;
+    width: min(320px, calc(100vw - 20px));
+    height: 420px;
   }
 }

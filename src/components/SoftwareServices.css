@@ -7,7 +7,7 @@
   font-family: var(--font-family-primary);
   max-width: 2000px;
   margin: 0 auto;
-  padding: 64px 32px 84px ;
+  padding: 64px 32px 84px;
   overflow: hidden;
 }
 
@@ -18,6 +18,9 @@
   gap: 16px;
   flex-wrap: wrap;
   margin-bottom: 24px;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .badge {
@@ -30,13 +33,13 @@
   letter-spacing: 0.18em;
   text-transform: uppercase;
   border: 1px solid rgba(15, 23, 42, 0.08);
-  margin-left: 143px;
+  margin-left: 0;
 }
 
 .close-btn2 {
   position: absolute;
   top: 20px;
-  right: 190px; /* Adjust as needed */
+  left: 1210px;
   padding: 10px 18px;
   border: none;
   border-radius: 999px;
@@ -50,19 +53,17 @@
   background: rgba(255, 255, 255, 0.18);
 }
 
-
 .header {
-  max-width: 3000px;
-  margin-bottom: 18px;
-  font-weight: 500px;
-  margin-left: 145px;
+  max-width: 1200px;
+  margin: 0 auto 18px;
+  font-weight: 500;
 }
 
 .header h1 {
   font-family: var(--font-family-primary);
   font-size: clamp(2.4rem, 4vw, 3.4rem);
   font-weight: 300;
-  line-height: 1.05;
+
   margin: 0;
   color: var(--color-text-primary);
   letter-spacing: var(--letter-spacing-tight);
@@ -87,18 +88,18 @@
   color: #cbd5e1;
   font-size: 1.02rem;
   line-height: 1.75;
-  max-width: 2000px;
-  margin-bottom: 32px;
-  margin-left: 145px;
+  max-width: 1200px;
+  margin: 0 auto 32px;
 }
+
 
 .outcomes {
   display: grid;
   grid-template-columns: max-content minmax(0, 1fr);
   gap: 14px;
   align-items: center;
-  margin-bottom: 34px;
-  margin-left: 140px;
+  max-width: 1200px;
+  margin: 0 auto 34px;
 }
 
 .outcomes span {
@@ -125,10 +126,10 @@
 
 .services-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 3 cards per row */
-  gap: 24px; /* Space between cards */
-  max-width: 1200px; /* Controls overall width */
-  margin: 24px auto 0 130px; /* Centers the grid */
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+  max-width: 1200px;
+  margin: 24px auto 0;
 }
 
 .service-card {
@@ -228,15 +229,14 @@
 
 .how-it-works2 {
   margin-top: 64px;
-  max-width: 500px;
-  margin-left: 120px;
-   color: #38bdf8;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  color: #38bdf8;
   font-size: 12px;
   font-weight: 700;
-  
   letter-spacing: 0.18em;
 }
-
 
 .wins h6 {
   color: #38bdf8;
@@ -244,16 +244,16 @@
   font-weight: 700;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  /* margin: 0 0 14px; */
-  margin-left: 120px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .how-it-works2 p {
   color: #cbd5e1;
   font-size: 1rem;
   line-height: 1.8;
-  margin-right:10px;
-  white-space: nowrap;
+  margin-right: 10px;
+  white-space: normal;
 }
 
 .wins {
@@ -262,20 +262,19 @@
 
 .wins-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 350px));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 50px;
+  max-width: 1200px;
   margin: 20px auto 0;
-  /* justify-content: center; Centers the cards */
-  margin-left: 110px; /* Aligns the cards to the left */
 }
 
 .win-card {
-  width: 350px;
+  width: 100%;
   background: #ffffff;
   border: 1px solid rgba(15, 23, 42, 0.08);
   border-radius: 22px;
   padding: 22px;
-  height: 130px;
+  min-height: 130px;
   box-shadow: 0 16px 36px rgba(15, 23, 42, 0.08);
 }
 .win-card h3 {
@@ -321,6 +320,11 @@
   .software-section h1 {
     font-size: clamp(2.4rem, 6vw, 3.2rem);
   }
+
+  .close-btn2 {
+    position: static;
+    margin-left: auto;
+  }
 }
 
 @media (max-width: 560px) {
@@ -335,5 +339,9 @@
 
   .outcomes {
     gap: 12px;
+  }
+
+  .top-bar {
+    align-items: flex-start;
   }
 }

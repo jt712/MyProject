@@ -145,7 +145,7 @@
 .send-btn3 {
     position: absolute;
     right: 5px;
-    top: 0%;
+    top:0%;
     transform: translateY(-50%);
 
     width: 28px;
@@ -172,10 +172,19 @@
     transform: translateY(-50%) scale(1.08);
 }
 /* ---------------- Footer ---------------- */
+.chat-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    min-height: 32px;
+}
+
 .contact-text{
-    margin:0 0 10px;
+    margin:0;
     font-size:12px;
     color:#666;
+    line-height:1.35;
 }
 
 .contact-text span{
@@ -184,16 +193,17 @@
 }
 
 .enquiry {
-    width: 30%;
-    height: 42px;
+    width: auto;
+    min-width: 84px;
+    height: 34px;
 
     border: none;
-    border-radius: 10px;
+    border-radius: 8px;
 
     background: linear-gradient(90deg, #4fd5ff, #6366ff);
 
     color: #000;
-    font-size: 14px;
+    font-size: 12px;
     font-weight: 600;
 
     cursor: pointer;
@@ -202,5 +212,6 @@
     align-items: center;
     justify-content: center;
 
-    padding: 0;
+    padding: 0 14px;
+    flex-shrink: 0;
 }

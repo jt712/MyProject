@@ -84,3 +84,24 @@
     padding-top: 0;
   }
 }
+
+@media (max-width: 600px) {
+  .footer {
+    padding: 28px 0;
+  }
+
+  .footer-container {
+    padding: 0 20px;
+  }
+
+  .footer-left p,
+  .footer-column a,
+  .footer-right {
+    font-size: 16px;
+  }
+
+  .footer-links {
+    flex-direction: column;
+    gap: 24px;
+  }
+}

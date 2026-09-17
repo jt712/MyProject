@@ -1,6 +1,6 @@
 .service-section1 {
   padding: 60px 20px;
- background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.16), transparent 24%),
+  background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.16), transparent 24%),
     linear-gradient(180deg, #041828 0%, #062640 100%);
   min-height: 100vh;
   color: #111;
@@ -9,11 +9,9 @@
 
 .service-section1 h1 {
   text-align: center;
-  margin-bottom: 60px;
-  font-size: 20px;
+  margin: 40px auto 60px;
+  font-size: clamp(1.5rem, 3vw, 2.2rem);
   color: white;
-  margin-left: 150px;
-  margin-top: 40px;
 }
 
 .container1 {
@@ -128,6 +126,11 @@
 }
 
 @media (max-width: 768px) {
+  .service-section1 {
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+
   .products-grid1 {
     grid-template-columns: 1fr;
   }

@@ -13,9 +13,28 @@ const agentproducts = [
 ];
 
 function BankingAgent() {
+  const navigate = useNavigate();
   const goToAgent = () => {
-    window.location.href =
-      "https://dnyanaihelpme-medical-billing-system.hf.space/login.html";
+   window.open(
+    "https://dnyanaihelpme-medical-billing-system.hf.space/login.html",
+    "_blank",
+    "noopener,noreferrer"
+  );
+  };
+
+   const handleBackToHomeProducts = () => {
+    navigate("/");
+
+    setTimeout(() => {
+      const productsSection = document.getElementById("products");
+
+      if (productsSection) {
+        productsSection.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+      }
+    }, 100);
   };
 
   return (
@@ -24,7 +43,7 @@ function BankingAgent() {
         <div className="terms-nav-left">
           <button
             className="nav-back-btn"
-            onClick={() => (window.location.href = "/products")}
+            onClick={handleBackToHomeProducts}
           >
             ← Back
           </button>

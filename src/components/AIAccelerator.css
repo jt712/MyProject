@@ -1,0 +1,937 @@
+/* ==========================================================
+   AI ACCELERATOR - FULL CSS
+========================================================== */
+
+
+/* ==========================================================
+   MAIN CONTAINER
+========================================================== */
+
+.container {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 30px;
+  box-sizing: border-box;
+
+  font-family: Arial, Helvetica, sans-serif;
+  color: #212529;
+}
+
+
+/* ==========================================================
+   HEADER
+========================================================== */
+
+.header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.main-title {
+  font-size: 36px;
+  font-weight: 700;
+
+  margin: 0 0 10px;
+
+  color: #1f2937;
+}
+
+.subtitle {
+  margin: 0;
+
+  font-size: 17px;
+
+  color: #6b7280;
+}
+
+
+/* ==========================================================
+   MAIN GRID
+========================================================== */
+
+.main-grid {
+  display: grid;
+
+  grid-template-columns: 280px 1fr;
+
+  gap: 25px;
+
+  align-items: start;
+}
+
+
+/* ==========================================================
+   CARDS
+========================================================== */
+
+.settings-card,
+.upload-card,
+.chat-container {
+  background: #ffffff;
+
+  border-radius: 14px;
+
+  border: 1px solid #e5e7eb;
+
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.07);
+}
+
+.settings-card,
+.upload-card {
+  padding: 25px;
+}
+
+.settings-card h4,
+.upload-card h4 {
+  margin-top: 0;
+  margin-bottom: 15px;
+
+  font-size: 20px;
+
+  color: #1f2937;
+}
+
+
+/* ==========================================================
+   SETTINGS CARD HEIGHT
+========================================================== */
+
+@media (min-width: 993px) {
+  .settings-card {
+    min-height: 700px;
+
+    box-sizing: border-box;
+  }
+}
+
+
+/* ==========================================================
+   HORIZONTAL LINE
+========================================================== */
+
+.settings-card hr {
+  border: 0;
+
+  border-top: 1px solid #e5e7eb;
+
+  margin: 18px 0;
+}
+
+
+/* ==========================================================
+   FORM GROUP
+========================================================== */
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-label,
+.form-group label {
+  display: block;
+
+  font-weight: 600;
+
+  font-size: 14px;
+
+  margin-bottom: 8px;
+
+  color: #374151;
+}
+
+
+/* ==========================================================
+   SELECT
+========================================================== */
+
+.form-select {
+  width: 100%;
+
+  padding: 10px 12px;
+
+  border: 1px solid #d1d5db;
+
+  border-radius: 8px;
+
+  background: #ffffff;
+
+  color: #374151;
+
+  font-size: 14px;
+
+  outline: none;
+
+  cursor: pointer;
+
+  box-sizing: border-box;
+}
+
+.form-select:focus {
+  border-color: #2563eb;
+
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+
+/* ==========================================================
+   FORM CONTROL
+========================================================== */
+
+.form-control {
+  width: 100%;
+
+  padding: 10px 12px;
+
+  border: 1px solid #d1d5db;
+
+  border-radius: 8px;
+
+  background: #ffffff;
+
+  color: #374151;
+
+  font-size: 14px;
+
+  outline: none;
+
+  box-sizing: border-box;
+}
+
+.form-control:focus {
+  border-color: #2563eb;
+
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+
+/* ==========================================================
+   FILE INPUT
+========================================================== */
+
+input[type="file"] {
+  padding: 9px;
+
+  margin-bottom: 15px;
+
+  cursor: pointer;
+}
+
+
+/* ==========================================================
+   RANGE SLIDER
+========================================================== */
+
+input[type="range"] {
+  width: 100%;
+
+  cursor: pointer;
+
+  margin-top: 5px;
+}
+
+
+/* ==========================================================
+   RANGE VALUE
+========================================================== */
+
+.range-value {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  margin-top: 6px;
+
+  font-size: 13px;
+
+  color: #6b7280;
+}
+
+.range-value strong {
+  color: #2563eb;
+
+  font-size: 14px;
+}
+
+
+/* ==========================================================
+   SYSTEM INFO
+========================================================== */
+
+.system-info h6 {
+  font-size: 15px;
+
+  margin: 0 0 12px;
+
+  color: #374151;
+}
+
+.system-info p {
+  margin: 8px 0;
+
+  font-size: 14px;
+
+  color: #4b5563;
+}
+
+
+/* ==========================================================
+   BUTTONS
+========================================================== */
+
+.btn {
+  border: none;
+
+  border-radius: 8px;
+
+  padding: 11px 20px;
+
+  font-size: 14px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: all 0.2s ease;
+}
+
+
+/* ==========================================================
+   PRIMARY BUTTON
+========================================================== */
+
+.btn-primary {
+  background: #2563eb;
+
+  color: #ffffff;
+}
+
+.btn-primary:hover {
+  background: #1d4ed8;
+
+  transform: translateY(-1px);
+}
+
+
+/* ==========================================================
+   SUCCESS BUTTON
+========================================================== */
+
+.btn-success {
+  background: #16a34a;
+
+  color: #ffffff;
+}
+
+.btn-success:hover {
+  background: #15803d;
+
+  transform: translateY(-1px);
+}
+
+
+/* ==========================================================
+   DISABLED BUTTON
+========================================================== */
+
+.btn:disabled {
+  opacity: 0.6;
+
+  cursor: not-allowed;
+
+  transform: none;
+}
+
+
+/* ==========================================================
+   UPLOAD CARD
+========================================================== */
+
+.upload-card {
+  margin-bottom: 20px;
+}
+
+.upload-card .form-control {
+  margin-bottom: 15px;
+}
+
+
+/* ==========================================================
+   METRICS GRID
+========================================================== */
+
+.metrics-grid {
+  display: grid;
+
+  grid-template-columns: repeat(4, 1fr);
+
+  gap: 15px;
+
+  margin-bottom: 20px;
+}
+
+
+/* ==========================================================
+   METRIC CARD
+========================================================== */
+
+.metric-card {
+  background: #ffffff;
+
+  border-radius: 12px;
+
+  padding: 18px;
+
+  border: 1px solid #e5e7eb;
+
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.05);
+
+  min-height: 100px;
+
+  box-sizing: border-box;
+}
+
+.metric-card h6 {
+  margin: 0 0 10px;
+
+  color: #6b7280;
+
+  font-size: 13px;
+
+  font-weight: 600;
+}
+
+.metric-card h5 {
+  margin: 0;
+
+  color: #111827;
+
+  font-size: 15px;
+
+  word-break: break-word;
+}
+
+
+/* ==========================================================
+   CHAT CONTAINER
+========================================================== */
+
+.chat-container {
+  padding: 0;
+
+  overflow: hidden;
+
+  /*
+    IMPORTANT:
+    Fixed height keeps the chat area from
+    continuously increasing when messages are added.
+  */
+
+  height: 460px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  box-sizing: border-box;
+}
+
+
+/* ==========================================================
+   CHAT HEADER
+========================================================== */
+
+.chat-header {
+  flex-shrink: 0;
+
+  background: #2563eb;
+
+  color: #ffffff;
+
+  padding: 14px 18px;
+
+  font-size: 18px;
+
+  font-weight: 600;
+
+  box-sizing: border-box;
+}
+
+
+/* ==========================================================
+   CHAT BODY
+========================================================== */
+
+.chat-body {
+  /*
+    flex: 1 makes the body use all remaining
+    space between header and footer.
+  */
+
+  flex: 1;
+
+  /*
+    VERY IMPORTANT:
+    Allows the chat body to shrink instead
+    of increasing the parent height.
+  */
+
+  min-height: 0;
+
+  /*
+    Messages scroll only inside this area.
+  */
+
+  overflow-y: auto;
+
+  overflow-x: hidden;
+
+  padding: 20px;
+
+  background: #f9fafb;
+
+  box-sizing: border-box;
+}
+
+
+/* ==========================================================
+   CUSTOM SCROLLBAR
+========================================================== */
+
+.chat-body::-webkit-scrollbar {
+  width: 7px;
+}
+
+.chat-body::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+.chat-body::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+
+  border-radius: 10px;
+}
+
+.chat-body::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+
+/* ==========================================================
+   EMPTY CHAT
+========================================================== */
+
+.empty-chat {
+  height: 100%;
+
+  min-height: 220px;
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  color: #9ca3af;
+
+  text-align: center;
+}
+
+.empty-chat p {
+  margin-top: 10px;
+
+  font-size: 14px;
+}
+
+
+/* ==========================================================
+   MESSAGES
+========================================================== */
+
+.message {
+  max-width: 80%;
+
+  padding: 12px 15px;
+
+  margin-bottom: 14px;
+
+  border-radius: 12px;
+
+  line-height: 1.5;
+
+  font-size: 14px;
+
+  word-wrap: break-word;
+
+  overflow-wrap: break-word;
+
+  box-sizing: border-box;
+}
+
+
+/* ==========================================================
+   USER MESSAGE
+========================================================== */
+
+.user-message {
+  margin-left: auto;
+
+  margin-right: 0;
+
+  background: #2563eb;
+
+  color: #ffffff;
+
+  border-bottom-right-radius: 3px;
+}
+
+
+/* ==========================================================
+   BOT MESSAGE
+========================================================== */
+
+.bot-message {
+  margin-right: auto;
+
+  margin-left: 0;
+
+  background: #ffffff;
+
+  border: 1px solid #e5e7eb;
+
+  color: #374151;
+
+  border-bottom-left-radius: 3px;
+}
+
+
+/* ==========================================================
+   CHAT FOOTER
+========================================================== */
+
+.chat-footer {
+  /*
+    IMPORTANT:
+    Footer will NEVER grow when messages increase.
+  */
+
+  flex-shrink: 0;
+
+  height: 70px;
+
+  min-height: 70px;
+
+  max-height: 70px;
+
+  padding: 10px 15px;
+
+  border-top: 1px solid #e5e7eb;
+
+  background: #ffffff;
+
+  box-sizing: border-box;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+}
+
+
+/* ==========================================================
+   CHAT TEXTAREA
+========================================================== */
+
+.chat-textarea {
+  /*
+    Textarea takes available horizontal space.
+  */
+
+  flex: 1;
+
+  width: 100%;
+
+  /*
+    Fixed height.
+    It will NOT increase when chatting.
+  */
+
+  height: 45px;
+
+  min-height: 45px;
+
+  max-height: 45px;
+
+  resize: none;
+
+  padding: 8px 10px;
+
+  font-family: inherit;
+
+  font-size: 14px;
+
+  line-height: 1.4;
+
+  box-sizing: border-box;
+}
+
+
+/* ==========================================================
+   ASK BUTTON
+========================================================== */
+
+.ask-button {
+  /*
+    Button stays fixed size.
+  */
+
+  flex-shrink: 0;
+
+  height: 45px;
+
+  margin-top: 0;
+
+  padding: 8px 16px;
+
+  font-size: 13px;
+
+  box-sizing: border-box;
+}
+
+
+/* ==========================================================
+   SELECTED FILE
+========================================================== */
+
+.upload-card p {
+  margin-top: 10px;
+
+  color: #16a34a;
+
+  font-size: 14px;
+}
+
+
+/* ==========================================================
+   UPLOAD MESSAGE
+========================================================== */
+
+.upload-card p[style] {
+  line-height: 1.4;
+}
+
+
+/* ==========================================================
+   RESPONSIVE - TABLET
+========================================================== */
+
+@media (max-width: 992px) {
+
+  .container {
+    padding: 25px;
+  }
+
+  .main-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .metrics-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .settings-card {
+    width: 100%;
+
+    min-height: auto;
+  }
+
+  /*
+    Slightly smaller chat on tablet.
+  */
+
+  .chat-container {
+    height: 600px;
+  }
+}
+
+
+/* ==========================================================
+   RESPONSIVE - MOBILE
+========================================================== */
+
+@media (max-width: 576px) {
+
+  .container {
+    padding: 15px;
+  }
+
+  .header {
+    margin-bottom: 25px;
+  }
+
+  .main-title {
+    font-size: 28px;
+  }
+
+  .subtitle {
+    font-size: 15px;
+  }
+
+  .settings-card,
+  .upload-card {
+    padding: 18px;
+  }
+
+  .settings-card {
+    min-height: auto;
+  }
+
+  .metrics-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .metric-card {
+    min-height: auto;
+  }
+
+  .message {
+    max-width: 90%;
+
+    font-size: 13px;
+  }
+
+
+  /* ========================================================
+     MOBILE CHAT CONTAINER
+  ======================================================== */
+
+  .chat-container {
+    height: 350px;
+
+    min-height: 350px;
+
+    max-height: 350px;
+  }
+
+
+  /* ========================================================
+     MOBILE CHAT HEADER
+  ======================================================== */
+
+  .chat-header {
+    padding: 12px 15px;
+
+    font-size: 16px;
+  }
+
+
+  /* ========================================================
+     MOBILE CHAT BODY
+  ======================================================== */
+
+  .chat-body {
+    min-height: 0;
+
+    padding: 15px;
+
+    overflow-y: auto;
+  }
+
+
+  /* ========================================================
+     MOBILE CHAT FOOTER
+  ======================================================== */
+
+  .chat-footer {
+    height: 65px;
+
+    min-height: 65px;
+
+    max-height: 65px;
+
+    padding: 8px 10px;
+
+    gap: 6px;
+  }
+
+
+  /* ========================================================
+     MOBILE TEXTAREA
+  ======================================================== */
+
+  .chat-textarea {
+    height: 42px;
+
+    min-height: 42px;
+
+    max-height: 42px;
+
+    padding: 7px 9px;
+
+    font-size: 13px;
+  }
+
+
+  /* ========================================================
+     MOBILE ASK BUTTON
+  ======================================================== */
+
+  .ask-button {
+    height: 42px;
+
+    margin-top: 0;
+
+    padding: 7px 12px;
+
+    font-size: 13px;
+  }
+}
+
+
+/* ==========================================================
+   VERY SMALL MOBILE
+========================================================== */
+
+@media (max-width: 400px) {
+
+  .chat-container {
+    height: 500px;
+
+    min-height: 500px;
+
+    max-height: 500px;
+  }
+
+  .chat-footer {
+    height: 62px;
+
+    min-height: 62px;
+
+    max-height: 62px;
+
+    padding: 7px 8px;
+
+    gap: 5px;
+  }
+
+  .chat-textarea {
+    height: 40px;
+
+    min-height: 40px;
+
+    max-height: 40px;
+
+    font-size: 12px;
+  }
+
+  .ask-button {
+    height: 40px;
+
+    padding: 6px 9px;
+
+    font-size: 12px;
+  }
+}

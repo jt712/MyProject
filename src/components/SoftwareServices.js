@@ -96,7 +96,7 @@ export default function SoftwareServices({ onClose }) {
          to launch.
       </h1>
 </div>
-      <p className="subtitle">
+      <p className="subtitle" style={{ fontSize:"17px", marginLeft:"120px", }}>
         Web, mobile, domains, integrations,
         and production reliability.
       </p>

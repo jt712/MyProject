@@ -33,7 +33,7 @@ export default function Footer({ setActiveSection }) {
   <div className="footer-column">
     <ul>
       <li onClick={() => setActiveSection("products")}><a href="#products">Products</a></li>
-      <li onClick={() => setActiveSection("case-studies")}><a href="#case-studies">Case Work</a></li>
+      <li onClick={() => setActiveSection("case-studies")}><a href="#case-studies">Case Studies</a></li>
       <li>  <Link to="/privacy">Privacy</Link> </li>
     </ul>
   </div>

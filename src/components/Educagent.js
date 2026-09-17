@@ -12,20 +12,20 @@ const agentproducts = [
     route: "/agent",
   },
   {
-    title: "Guide Students with Student Counselor Agent",
-    category: "Student Counselor",
-    image: "/images/student-counselor.jfif",
+  title: "Get Admission Guidance with CAP Round Counsellor",
+    category: "Cap Round Counselor",
+    image: "/images/student-counselor1.jfif",
     description:
-      "Intelligent career counseling platform providing personalized career guidance, stream selection, college recommendations, skill assessment, and academic planning.",
-    button: "Explore Student Counselor →",
+    "AI-powered counselling solution for CAP round admission guidance, college preferences, cutoff analysis, and personalized college recommendations.",
+    button: "Explore Cap Round Counselor →",
     route: "/layout",
   },
   {
-    title: "Counselor Agent",
-    category: "Counselor",
-    image: "/images/student-counselor.jfif",
+    title: "Autonomous AI Counsellor",
+    category: "Counsellor Agent",
+    image: "/images/counsellor-agent.jfif",
     description:
-      "Intelligent counseling platform providing personalized guidance, assessment, recommendations, and planning support.",
+      "AI-powered counselling solution that provides personalized guidance, recommendations, and intelligent answers based on user requirements.",
     button: "Explore Counselor Agent →",
     route: "/counselor",
   },
@@ -33,6 +33,21 @@ const agentproducts = [
 
 function Educagent() {
   const navigate = useNavigate();
+
+  const handleBackToHomeProducts = () => {
+    navigate("/");
+
+    setTimeout(() => {
+      const productsSection = document.getElementById("products");
+
+      if (productsSection) {
+        productsSection.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+      }
+    }, 100);
+  };
 
   // Go to login page and send the actual page route
   const goToLogin = (route) => {
@@ -49,7 +64,7 @@ function Educagent() {
         <div className="terms-nav-left">
           <button
             className="nav-back-btn"
-            onClick={() => navigate("/products")}
+            onClick={handleBackToHomeProducts}
           >
             ← Back
           </button>

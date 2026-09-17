@@ -1,124 +1,150 @@
+/* ================================
+   Login Page
+================================ */
+
+html,
+body {
+  overflow-x: hidden;
+}
+
 .login-page {
   min-height: 100vh;
-
   display: flex;
   justify-content: center;
   align-items: center;
-
   background:
-    radial-gradient(
-      circle at top left,
-      rgba(56, 189, 248, 0.16),
-      transparent 25%
-    ),
-    linear-gradient(
-      180deg,
-      #041828 0%,
-      #062640 100%
-    );
-
-  padding: 20px;
+    radial-gradient(circle at top left, rgba(56, 189, 248, 0.16), transparent 25%),
+    linear-gradient(180deg, #041828 0%, #062640 100%);
+  padding: clamp(12px, 3vw, 32px);
   box-sizing: border-box;
+  overflow-x: hidden;
 }
+
+/* ================================
+   Login Box
+================================ */
 
 .login-box {
-  width: 100%;
-  max-width: 400px;
-
-  background: white;
-
-  padding: 35px;
-
-  border-radius: 16px;
-
-  box-shadow:
-    0 15px 40px rgba(0, 0, 0, 0.25);
-
+  width: min(100%, 420px);
+  background: #ffffff;
+  padding: clamp(20px, 4vw, 32px);
+  border-radius: 20px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.22);
   box-sizing: border-box;
+  margin: 0 auto;
 }
+
+/* ================================
+   Heading
+================================ */
 
 .login-box h2 {
   text-align: center;
-
-  margin: 0 0 10px;
-
-  font-size: 28px;
-
+  margin: 0 0 8px;
+  font-size: clamp(1.5rem, 2vw, 2rem);
+  line-height: 1.25;
   color: #111827;
+  font-weight: 700;
 }
 
 .login-heading {
   text-align: center;
 }
 
+/* ================================
+   Logo
+================================ */
+
 .login-logo {
   display: flex;
-  width: 155px;
-  height: 110px;
+  width: min(100%, 160px);
+  height: clamp(72px, 10vw, 90px);
   align-items: center;
   justify-content: center;
-  margin: 0 auto 14px;
-  border-radius: 12px;
-  background: #f0f6ff;
+  margin: 0 auto 10px;
+  border-radius: 10px;
   overflow: hidden;
 }
 
 .login-logo img {
   width: 100%;
   height: 100%;
-  padding: 6px;
+  padding: 0;
   box-sizing: border-box;
   object-fit: contain;
+  max-width: 100%;
+  display: block;
 }
+
+/* ================================
+   Subtitle
+================================ */
 
 .login-subtitle {
   text-align: center;
-
   color: #6b7280;
-
-  font-size: 14px;
-
-  margin-bottom: 30px;
+  font-size: clamp(0.78rem, 1.6vw, 0.95rem);
+  line-height: 1.5;
+  margin: 0 0 20px;
 }
 
+/* ================================
+   Input Group
+================================ */
+
 .input-group {
-  margin-bottom: 20px;
+  margin-bottom: 10px;
+  width: 100%;
 }
 
 .input-group label {
   display: block;
-
-  margin-bottom: 7px;
-
+  margin-bottom: 5px;
+  font-size: 0.8125rem;
   font-weight: 600;
-
   color: #374151;
+}
+
+/* ================================
+   Input With Icon
+================================ */
+
+.input-with-icon {
+  position: relative;
+  width: 100%;
+  margin: 0 auto;
 }
 
 .input-group input {
   width: 100%;
-
-  padding: 12px 12px 12px 42px;
-
+  min-height: 44px;
+  padding: 10px 44px 10px 38px;
   border: 1px solid #d1d5db;
-
-  border-radius: 8px;
-  color: black;
-  font-size: 15px;
-
+  border-radius: 7px;
+  color: #111827;
+  background: #ffffff;
+  font-size: clamp(0.8125rem, 1.7vw, 0.9375rem);
+  line-height: 1.4;
   box-sizing: border-box;
-
   outline: none;
+  margin: 0;
+  display: block;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
-.input-with-icon {
-  position: relative;
+.input-group input:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.1);
 }
+
+/* ================================
+   Input Icon
+================================ */
 
 .input-icon {
   position: absolute;
   top: 50%;
-  left: 13px;
+  left: 12px;
   display: flex;
   color: #2563eb;
   transform: translateY(-50%);
@@ -126,8 +152,8 @@
 }
 
 .input-icon svg {
-  width: 18px;
-  height: 18px;
+  width: 17px;
+  height: 17px;
   fill: none;
   stroke: currentColor;
   stroke-linecap: round;
@@ -135,70 +161,216 @@
   stroke-width: 1.8;
 }
 
-.input-group input:focus {
-  border-color: #2563eb;
+/* ================================
+   Show Password
+================================ */
 
-  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.1);
+.show-password-btn {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  border: none;
+  background: transparent;
+  color: #2563eb;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0.25rem 0.35rem;
+  min-height: 32px;
 }
+
+/* ================================
+   Error
+================================ */
 
 .login-error {
   color: #dc2626;
-
-  font-size: 14px;
-
+  font-size: clamp(0.75rem, 1.5vw, 0.875rem);
+  line-height: 1.4;
   text-align: center;
-
-  margin-bottom: 15px;
+  margin: 0 0 10px;
+  word-break: break-word;
 }
 
-.login-btn {
+/* ================================
+   Forgot Password
+================================ */
+
+.forgot-password-row {
+  display: flex;
+  justify-content: flex-end;
   width: 100%;
+  margin: -1px 0 12px;
+}
 
-  padding: 12px;
-
+.forgot-password-btn {
   border: none;
-
-  border-radius: 8px;
-
-  background: #2563eb;
-
-  color: white;
-
-  font-size: 16px;
-
+  background: transparent;
+  color: #2563eb;
+  font-size: 0.75rem;
   font-weight: 600;
-
   cursor: pointer;
+  padding: 0.25rem 0;
+  line-height: 1.4;
+  text-align: right;
+}
+
+.forgot-password-btn:hover {
+  text-decoration: underline;
+}
+
+/* ================================
+   Login Button
+================================ */
+
+.login-btn {
+  width: min(100%, 180px);
+  min-height: 44px;
+  display: block;
+  margin: 0 auto;
+  padding: 9px 14px;
+  border: none;
+  border-radius: 7px;
+  background: #2563eb;
+  color: #ffffff;
+  font-size: clamp(0.8125rem, 1.8vw, 0.9375rem);
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
 }
 
 .login-btn:hover {
   background: #1d4ed8;
+  transform: translateY(-1px);
 }
 
-.back-products-btn {
+/* ================================
+   Bottom Actions
+================================ */
+
+.login-bottom-actions {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 7px;
+  margin-top: 14px;
   width: 100%;
+}
 
-  margin-top: 15px;
+/* ================================
+   Signup Redirect
+================================ */
 
-  padding: 10px;
+.signup-redirect {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin: 0;
+  font-size: clamp(0.75rem, 1.8vw, 0.875rem);
+  color: #64748b;
+  max-width: 100%;
+}
 
+.signup-redirect span,
+.signup-redirect button {
+  white-space: normal;
+}
+
+.signup-redirect button {
   border: none;
-
   background: transparent;
-
   color: #2563eb;
-
+  font-size: inherit;
+  font-weight: 600;
   cursor: pointer;
+  padding: 0;
+}
 
-  font-size: 14px;
+.signup-redirect button:hover {
+  text-decoration: underline;
+}
+
+/* ================================
+   Back Products
+================================ */
+
+.back-products-btn {
+  width: auto;
+  margin: 0;
+  padding: 0.25rem 0;
+  border: none;
+  background: transparent;
+  color: #2563eb;
+  cursor: pointer;
+  font-size: clamp(0.75rem, 1.8vw, 0.875rem);
+  white-space: normal;
 }
 
 .back-products-btn:hover {
   text-decoration: underline;
 }
 
-@media (max-width: 500px) {
+/* ================================
+   Responsive Breakpoints
+================================ */
+
+@media (max-width: 1024px) {
   .login-box {
-    padding: 25px;
+    width: min(100%, 390px);
+  }
+}
+
+@media (max-width: 640px) {
+  .login-page {
+    padding: 12px;
+  }
+
+  .login-box {
+    width: 100%;
+    max-width: 100%;
+    padding: 22px 18px;
+  }
+
+  .login-logo {
+    width: min(100%, 130px);
+    height: 78px;
+    margin-bottom: 8px;
+  }
+
+  .login-bottom-actions {
+    gap: 10px;
+  }
+
+  .signup-redirect {
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+  }
+
+  .login-btn {
+    width: 100%;
+  }
+}
+
+@media (max-width: 400px) {
+  .login-page {
+    padding: 10px;
+  }
+
+  .login-box {
+    padding: 18px 14px;
+  }
+
+  .login-logo {
+    width: min(100%, 120px);
+    height: 70px;
+  }
+
+  .input-group input {
+    padding: 10px 42px 10px 36px;
   }
 }

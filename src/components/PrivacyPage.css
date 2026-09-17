@@ -47,9 +47,9 @@
 
 .hero-image {
   position: relative;
-  width: 100vw;
-  left: 50%;
-  transform: translateX(-50%);
+  width: 100%;
+  left: 0;
+  transform: none;
   border-radius: 0;
   overflow: hidden;
   margin-top: 0;
@@ -96,12 +96,12 @@
 
 .hero-content h1 {
   font-size: clamp(2.5rem, 4vw, 4.8rem);
-  margin: 20px 0 20px 20px;
+  margin: 20px 0;
   line-height: 1.05;
   font-weight: 600;
   letter-spacing: -0.02em;
   color: #f8fafc;
-  white-space: nowrap;
+  white-space: normal;
 }
 
 .hero-content p {
@@ -214,4 +214,53 @@
     #38bdf8,
     #8b5cf6
   );
+}
+
+@media (max-width: 900px) {
+  .trust-stats,
+  .privacy-grid,
+  .timeline {
+    grid-template-columns: 1fr;
+    flex-direction: column;
+  }
+
+  .trust-stats,
+  .privacy-grid {
+    padding: 0 20px;
+  }
+
+  .privacy-cta,
+  .rights-section {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+@media (max-width: 640px) {
+  .privacy-navbar {
+    padding: 0 20px;
+    gap: 12px;
+  }
+
+  .privacy-tag {
+    font-size: 18px;
+  }
+
+  .hero-content {
+    top: 24px;
+    width: min(92%, 680px);
+    padding: 12px 16px;
+  }
+
+  .hero-content p {
+    font-size: 1rem;
+  }
+
+  .privacy-card,
+  .stat-card,
+  .step,
+  .privacy-cta {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
 }
