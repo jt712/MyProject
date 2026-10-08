@@ -27,9 +27,10 @@ const agentproducts = [
     description:
       "AI-powered counselling solution that provides personalized guidance, recommendations, and intelligent answers based on user requirements.",
     button: "Explore Counselor Agent →",
-    route: "/counselor",
+    route: "/aicounsellor",
   },
 ];
+
 
 function Educagent() {
   const navigate = useNavigate();

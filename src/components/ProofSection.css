@@ -1,65 +1,73 @@
 .proof-section {
-background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.16), transparent 24%),
+  background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.16), transparent 24%),
     linear-gradient(180deg, #041828 0%, #062640 100%);
-  padding: 84px 60px 96px 50px;
+  padding: 84px 60px 96px;
   min-height: 100px;
   font-family: var(--font-family-secondary, Inter, sans-serif);
-  /* margin-bottom: -100px; */
-   margin-right: 5px;
-  /* margin-left: 40px;   */
+  width: 100%;
+  box-sizing: border-box;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
 }
 
 .proof-inner {
-  max-width: 5000px;
+  max-width: 1400px; /* ५०००px ऐवजी योग्य मॅक्स विड्थ */
   margin: 0 auto;
+  width: 100%;
 }
 
 .proof-tag {
   display: inline-flex;
-  align-items: center;
-  justify-content: center;
+  /* align-items: center;
+  justify-content: center; */
   background: rgba(79, 209, 255, 0.12);
   color: var(--color-accent-primary, #4fd1ff);
   border: 1px solid rgba(79, 209, 255, 0.18);
   border-radius: 999px;
   padding: 10px 18px;
-  font-size: 0.88rem;
+  font-size: var(--font-size-caption, 0.75rem);
   font-weight: 700;
   letter-spacing: 0.16em;
   text-transform: uppercase;
   margin-bottom: 24px;
+  margin-left: -80px;
 }
 
 .proof-title {
   font-family: var(--font-family-primary, 'Plus Jakarta Sans', sans-serif);
-  font-size: 35px;
+  font-size: clamp(2rem, 4vw, 3.2rem);
   font-weight: 500;
-  line-height: 1.08;
+  line-height: 1.15;
   max-width: 1000px;
   color: #f8fbff;
   margin: 0 0 22px;
   letter-spacing: -0.03em;
-   background: transparent;
+  background: transparent;
   border: none;
   border-radius: 0;
   box-shadow: none;
   padding: 0;
   display: block;
+  word-wrap: break-word;
+   margin-left: -80px;
 }
 
 .proof-description {
-  font-size: 1rem;
-  line-height: 1.9;
+  font-size: var(--font-size-body, 1rem);
+  line-height: 1.8;
   max-width: 780px;
   color: var(--color-text-secondary, #b8bdd4);
   margin-bottom: 48px;
-  
+   margin-left: -80px;
 }
 
 .proof-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(445px, 1fr));
-  gap: 7px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+  width: 100%;
 }
 
 .proof-card {
@@ -68,10 +76,11 @@ background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.16), transp
   border-radius: 28px;
   padding: 32px 28px;
   min-height: 280px;
-  width: 445px;
+  width: 100%; /* ४४५px ची हार्डकोडेड विड्थ काढून फ्लुइड विड्थ दिली */
   display: flex;
   flex-direction: column;
   transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
+  box-sizing: border-box;
 }
 
 .proof-card:hover {
@@ -116,7 +125,7 @@ background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.16), transp
 
 .proof-card h3 {
   font-family: var(--font-family-primary, 'Plus Jakarta Sans', sans-serif);
-  font-size: 1.25rem;
+  font-size: var(--font-size-subheading, 1.25rem);
   line-height: 1.35;
   font-weight: 700;
   margin: 0 0 12px;
@@ -125,7 +134,7 @@ background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.16), transp
 
 .proof-desc {
   color: #475569;
-  font-size: 0.95rem;
+  font-size: var(--font-size-body, 1rem);
   line-height: 1.85;
   margin-bottom: 20px;
 }
@@ -154,32 +163,90 @@ background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.16), transp
   font-weight: 700;
 }
 
-@media (max-width: 980px) {
-  .proof-section {
-    padding: 72px 20px 100px;
-  }
+/* =========================================================
+   UPDATED RESPONSIVE DESIGN (Desktop, Laptop, Tablet, Mobile)
+   ========================================================= */
 
+/* 1. Large Desktop / Ultra-Wide (1400px and above) */
+@media (min-width: 1400px) {
   .proof-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
   }
 }
 
-@media (max-width: 680px) {
+/* 2. Laptops & Medium Screens (1025px - 1280px) */
+@media (max-width: 1280px) {
   .proof-section {
-    padding: 56px 16px 80px;
-  }
-
-  .proof-title {
-    font-size: clamp(2rem, 10vw, 2.8rem);
+    padding: 72px 40px 80px;
   }
 
   .proof-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(3, 1fr);
     gap: 20px;
   }
 
   .proof-card {
-    padding: 24px 20px;
+    padding: 26px 22px;
+  }
+}
+
+/* 3. Tablets & Small Laptops (769px - 1024px) */
+@media (max-width: 1024px) {
+  .proof-section {
+    padding: 64px 32px 72px;
+  }
+
+  .proof-grid {
+    grid-template-columns: repeat(2, 1fr); /* २ कॉलम्समध्ये स्विच होईल */
+    gap: 20px;
+  }
+
+  .proof-description {
+    margin-bottom: 36px;
+  }
+}
+
+/* 4. Small Tablets & Large Mobiles (561px - 768px) */
+@media (max-width: 768px) {
+  .proof-section {
+    padding: 52px 24px 60px;
+  }
+
+  .proof-title {
+    font-size: clamp(1.8rem, 5vw, 2.4rem);
+  }
+
+  .proof-grid {
+    grid-template-columns: 1fr; /* १ कॉलम लेआउट */
+    gap: 20px;
+  }
+
+  .proof-card {
     min-height: auto;
+    padding: 24px 20px;
+  }
+}
+
+/* 5. Mobile Devices (Up to 560px) */
+@media (max-width: 560px) {
+  .proof-section {
+    padding: 40px 16px 48px;
+  }
+
+  .proof-tag {
+    padding: 8px 14px;
+    font-size: 0.7rem;
+    margin-bottom: 16px;
+  }
+
+  .proof-description {
+    font-size: 0.95rem;
+    margin-bottom: 28px;
+  }
+
+  .proof-card {
+    padding: 20px 16px;
+    border-radius: 20px;
   }
 }

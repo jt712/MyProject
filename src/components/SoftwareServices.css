@@ -5,10 +5,11 @@
     linear-gradient(180deg, #041828 0%, #062640 100%);
   color: var(--color-text-primary);
   font-family: var(--font-family-primary);
-  max-width: 2000px;
-  margin: 0 auto;
-  padding: 64px 32px 84px;
+  width: 100%;
+  margin-top: 50px;
+  padding: 64px 24px 84px;
   overflow: hidden;
+  box-sizing: border-box;
 }
 
 .top-bar {
@@ -17,10 +18,10 @@
   align-items: center;
   gap: 16px;
   flex-wrap: wrap;
-  margin-bottom: 24px;
-  max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto 24px;
+  position: relative;
 }
 
 .badge {
@@ -28,7 +29,7 @@
   color: #0f172a;
   padding: 10px 16px;
   border-radius: 999px;
-  font-size: 0.78rem;
+  font-size: var(--font-size-caption);
   font-weight: 700;
   letter-spacing: 0.18em;
   text-transform: uppercase;
@@ -36,16 +37,19 @@
   margin-left: 0;
 }
 
+/* Close Button Positioning Improved */
 .close-btn2 {
   position: absolute;
-  top: 20px;
-  left: 1210px;
+  top: 0;
+  right: 0; 
   padding: 10px 18px;
   border: none;
   border-radius: 999px;
-  background: rgba(255,255,255,0.12);
+  background: rgba(255, 255, 255, 0.12);
   color: #fff;
   cursor: pointer;
+  z-index: 10;
+  transition: transform 0.2s ease, background 0.2s ease;
 }
 
 .close-btn2:hover {
@@ -54,51 +58,50 @@
 }
 
 .header {
-  max-width: 1200px;
+  width: 100%;
+  max-width: 1400px;
   margin: 0 auto 18px;
   font-weight: 500;
 }
 
-.header h1 {
+.header h1,
+.software-section h1 {
   font-family: var(--font-family-primary);
-  font-size: clamp(2.4rem, 4vw, 3.4rem);
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  line-height: 1.15;
   font-weight: 300;
-
-  margin: 0;
-  color: var(--color-text-primary);
+  margin: 0 0 18px;
+  color: #f8fafc;
   letter-spacing: var(--letter-spacing-tight);
-  max-width: 760px;
+  max-width: 900px;
+  width: 100%;
   background: transparent;
   border: none;
   border-radius: 0;
   box-shadow: none;
   padding: 0;
   display: block;
-}
-
-.software-section h1 {
-  font-size: 35px;
-  line-height: 1.04;
-  font-weight: 300;
-  margin: 0 0 18px;
-  color: #f8fafc;
+  text-align: left;
+  margin-left: 0;
 }
 
 .subtitle {
   color: #cbd5e1;
-  font-size: 1.02rem;
+  font-size: var(--font-size-body);
   line-height: 1.75;
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 0 auto 32px;
+  /* Fix: Text wrap properly on smaller screens */
+  white-space: normal;
+  word-wrap: break-word;
 }
-
 
 .outcomes {
   display: grid;
   grid-template-columns: max-content minmax(0, 1fr);
   gap: 14px;
   align-items: center;
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 0 auto 34px;
 }
 
@@ -111,7 +114,7 @@
   border: 1px solid rgba(15, 23, 42, 0.08);
   border-radius: 999px;
   padding: 10px 18px;
-  font-size: 0.88rem;
+  font-size: var(--font-size-caption);
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.12em;
@@ -120,7 +123,7 @@
 .outcomes p {
   margin: 0;
   color: #475569;
-  font-size: 1rem;
+  font-size: var(--font-size-body);
   line-height: 1.8;
 }
 
@@ -128,7 +131,7 @@
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 24px;
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 24px auto 0;
 }
 
@@ -142,6 +145,7 @@
   display: flex;
   flex-direction: column;
   min-height: 330px;
+  box-sizing: border-box;
   transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -160,7 +164,7 @@
 }
 
 .card-header span:first-child {
-  font-size: 0.82rem;
+  font-size: var(--font-size-caption);
   color: #475569;
   font-weight: 700;
   text-transform: uppercase;
@@ -172,7 +176,7 @@
 }
 
 .service-card h3 {
-  font-size: 1.2rem;
+  font-size: var(--font-size-subheading);
   margin: 0 0 12px;
   line-height: 1.25;
   color: #0f172a;
@@ -182,7 +186,7 @@
   margin: 0 0 16px;
   color: #475569;
   line-height: 1.7;
-  font-size: 0.96rem;
+  font-size: var(--font-size-body);
 }
 
 .service-card ul {
@@ -199,7 +203,7 @@
   margin: 0;
   padding-left: 22px;
   color: #475569;
-  font-size: 0.95rem;
+  font-size: var(--font-size-body);
   line-height: 1.5;
 }
 
@@ -218,7 +222,7 @@
   color: var(--color-accent-primary);
   text-decoration: none;
   font-weight: 700;
-  font-size: 0.96rem;
+  font-size: var(--font-size-body);
   letter-spacing: 0.01em;
   transition: color 0.2s ease;
 }
@@ -227,30 +231,45 @@
   color: var(--color-accent-secondary);
 }
 
+.service-link {
+  margin-top: 16px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--color-accent-primary);
+  text-align: left;
+  font: inherit;
+  font-weight: 700;
+  font-size: var(--font-size-body);
+  letter-spacing: 0.01em;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.service-link:hover,
+.service-link:focus-visible {
+  color: var(--color-accent-secondary);
+}
+
+.service-link:focus-visible {
+  outline: 2px solid #ffffff;
+  outline-offset: 4px;
+}
+
 .how-it-works2 {
   margin-top: 64px;
-  max-width: 1200px;
+  max-width: 1400px;
   margin-left: auto;
   margin-right: auto;
   color: #38bdf8;
-  font-size: 12px;
+  font-size: clamp(0.7rem, 1vw, 0.8rem);
   font-weight: 700;
   letter-spacing: 0.18em;
-}
-
-.wins h6 {
-  color: #38bdf8;
-  font-size: 0.92rem;
-  font-weight: 700;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  max-width: 1200px;
-  margin: 0 auto;
 }
 
 .how-it-works2 p {
   color: #cbd5e1;
-  font-size: 1rem;
+  font-size: var(--font-size-body);
   line-height: 1.8;
   margin-right: 10px;
   white-space: normal;
@@ -260,11 +279,21 @@
   margin-top: 50px;
 }
 
+.wins h6 {
+  color: #38bdf8;
+  font-size: var(--font-size-caption);
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
 .wins-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 50px;
-  max-width: 1200px;
+  gap: 32px;
+  max-width: 1400px;
   margin: 20px auto 0;
 }
 
@@ -276,9 +305,11 @@
   padding: 22px;
   min-height: 130px;
   box-shadow: 0 16px 36px rgba(15, 23, 42, 0.08);
+  box-sizing: border-box;
 }
+
 .win-card h3 {
-  font-size: 1.2rem;
+  font-size: var(--font-size-subheading);
   margin: 0 0 10px;
   color: #0f172a;
 }
@@ -287,61 +318,122 @@
   margin: 0;
   color: #475569;
   line-height: 1.75;
-  font-size: 0.98rem;
+  font-size: var(--font-size-body);
 }
 
-@media (max-width: 1080px) {
+/* =========================================================
+   UPDATED RESPONSIVE RULES (Desktop, Laptop, Tablet, Mobile)
+   ========================================================= */
+
+/* 1. Extra Large Desktop Screens (1400px and up) */
+@media (min-width: 1400px) {
+  .services-grid,
+  .wins-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+  }
+}
+
+/* 2. Laptops & Small Desktops (1025px - 1280px) */
+@media (max-width: 1280px) {
   .software-section {
     padding: 56px 24px 72px;
   }
 
   .services-grid,
   .wins-grid {
-    grid-template-columns: repeat(2, minmax(240px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  .service-card,
+  .win-card {
+    padding: 20px;
   }
 }
 
-@media (max-width: 768px) {
+/* 3. Tablets & Small Laptops (769px - 1024px) */
+@media (max-width: 1024px) {
   .software-section {
-    padding: 48px 20px 60px;
+    padding: 50px 24px 64px;
   }
 
-  .top-bar,
+  .services-grid,
+  .wins-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .close-btn2 {
+    position: relative;
+    top: auto;
+    right: auto;
+  }
+}
+
+/* 4. Mobile Devices & Small Tablets (561px - 768px) */
+@media (max-width: 768px) {
+  .software-section {
+    padding: 44px 20px 56px;
+    margin-top: 30px;
+  }
+
+  .top-bar {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
   .outcomes {
     grid-template-columns: 1fr;
-    justify-content: stretch;
+    gap: 10px;
+  }
+
+  .outcomes span {
+    align-self: flex-start;
   }
 
   .services-grid,
   .wins-grid {
     grid-template-columns: 1fr;
+    gap: 18px;
   }
 
-  .software-section h1 {
-    font-size: clamp(2.4rem, 6vw, 3.2rem);
+  .software-section h1,
+  .header h1 {
+    font-size: clamp(1.8rem, 5vw, 2.4rem);
   }
 
-  .close-btn2 {
-    position: static;
-    margin-left: auto;
+  .service-card {
+    min-height: auto;
   }
 }
 
+/* 5. Extra Small Mobile Devices (Up to 560px) */
 @media (max-width: 560px) {
   .software-section {
     padding: 36px 16px 40px;
   }
 
-  .service-card,
-  .win-card {
-    padding: 22px;
-  }
-
-  .outcomes {
+  .top-bar {
+    flex-direction: column;
+    align-items: flex-start;
     gap: 12px;
   }
 
-  .top-bar {
-    align-items: flex-start;
+  .close-btn2 {
+    align-self: flex-end;
+  }
+
+  .service-card,
+  .win-card {
+    padding: 18px;
+    border-radius: 18px;
+  }
+
+  .outcomes span {
+    width: 100%;
+    text-align: center;
+    box-sizing: border-box;
   }
 }

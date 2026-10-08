@@ -1,7 +1,8 @@
+
 import React from "react";
 import "./EngageSection.css";
 
-export default function EngageSection() {
+export default function EngageSection({ onOpenCareerCounselling }) {
   return (
     <section className="engage-wrapper">
       <div className="engage-card">
@@ -16,7 +17,14 @@ export default function EngageSection() {
         </div>
 
         <div className="engage-right">
-          <button className="engage-btn">
+          <button
+            type="button"
+            className="engage-btn"
+            onClick={(event) => {
+              event.preventDefault();
+              onOpenCareerCounselling?.();
+            }}
+          >
             Talk with us
           </button>
         </div>

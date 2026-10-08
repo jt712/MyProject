@@ -1,12 +1,17 @@
+/* =========================
+   SOLUTIONS SECTION CONTAINER
+========================= */
 .solutions-section {
   position: relative;
   background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.16), transparent 24%),
     linear-gradient(180deg, #041828 0%, #062640 100%);
   color: var(--color-text-primary);
   font-family: var(--font-family-primary);
-  padding: 56px 40px 80px;
-  margin: 30px auto;
-  max-width: 2000px;
+  padding: 56px 24px 80px;
+  margin: 30px auto; /* डाव्या आणि उजव्या बाजूने सेंटर्ड करण्यासाठी */
+  max-width: 1430px; /* 1400px वरून +30px वाढवून 1430px केले */
+  width: calc(100% - 32px);
+  box-sizing: border-box;
 }
 
 .solutions-header {
@@ -15,22 +20,25 @@
   align-items: center;
   gap: 16px;
   flex-wrap: wrap;
-  margin-bottom: 24px;
-  max-width: 3000px;
+  margin: 0 auto 24px;
+  max-width: 100%;
   position: relative;
-  padding-left: 100px;
+  padding-left: 0;
 }
 
+/* Close Button - Right side alignment */
 .close-btn1 {
   position: absolute;
   top: 20px;
-  right: 120px; /* Adjust as needed */
+  right: 20px;
   padding: 10px 18px;
   border: none;
   border-radius: 999px;
-  background: rgba(255,255,255,0.12);
+  background: rgba(255, 255, 255, 0.12);
   color: #fff;
   cursor: pointer;
+  z-index: 10;
+  transition: all 0.3s ease;
 }
 
 .close-btn1:hover {
@@ -51,14 +59,14 @@
   border: 1px solid rgba(79, 209, 255, 0.18);
   border-radius: 999px;
   text-decoration: none;
- margin-left: 20px;
+  margin-left: 0;
 }
 
 .solutions-section h2 {
   max-width: 860px;
   font-size: 30px;
   line-height: 1.1;
-  margin: 28px 0 18px 118px;
+  margin: 28px 0 18px;
   color: #f8fafc;
 }
 
@@ -68,7 +76,7 @@
   line-height: 1.8;
   max-width: 720px;
   margin-bottom: 40px;
-  margin-left: 118px;
+  margin-left: 0;
 }
 
 .filter-tags {
@@ -77,7 +85,7 @@
   flex-wrap: wrap;
   gap: 14px;
   margin-bottom: 42px;
-  margin-left: 115px;
+  margin-left: 0;
 }
 
 .filter-tags span {
@@ -95,13 +103,16 @@
   line-height: 1.7;
 }
 
+/* =========================
+   SOLUTIONS GRID (CENTERED)
+========================= */
 .solutions-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(240px, 1fr));
   gap: 20px;
   width: 100%;
-  max-width: 1260px;
-  margin: 0 auto;
+  max-width: 1290px; /* ग्रिड रुंदीसुद्धा +30px ने वाढवून Balanced ठेवली आहे */
+  margin: 0 auto; /* सेंटर करण्यासाठी equal left-right spacing */
   justify-content: center;
   align-items: stretch;
   justify-items: center;
@@ -109,11 +120,11 @@
 
 .solution-card {
   width: 100%;
-  max-width: 360px;
+  max-width: 380px;
   background: #ffffff;
   border: 1px solid rgba(15, 23, 42, 0.08);
   border-radius: 18px;
-  padding: 16px;
+  padding: 20px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -123,6 +134,7 @@
   transition: all 0.3s ease;
   color: #0f172a;
   margin: 0;
+  box-sizing: border-box;
 }
 
 .solution-card:hover {
@@ -203,19 +215,40 @@
   color: var(--color-accent-secondary);
 }
 
+.solution-card-link {
+  margin-top: auto;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--color-accent-primary);
+  text-align: left;
+  font: inherit;
+  font-weight: 700;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.solution-card-link:hover,
+.solution-card-link:focus-visible {
+  color: var(--color-accent-secondary);
+}
+
+.solution-card-link:focus-visible {
+  outline: 2px solid #0f172a;
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+
 /* =========================
    HOW IT WORKS
 ========================= */
-
 .how-it-works1 {
-  margin-top: 60px;
-  /* text-align: center; */
-
+  width: 100%;
+  margin: 60px auto 0;
 }
 
-.how-it-works1 h4{
-  margin-left: -20px;
-
+.how-it-works1 h4 {
+  margin-left: 0;
 }
 
 .how-it-works1-title {
@@ -232,7 +265,9 @@
   justify-content: flex-start;
   align-items: center;
   gap: 20px;
-  margin-left: 118px;
+  margin-left: 0;
+  flex-wrap: wrap;
+  margin-top: 20px;
 }
 
 .steps1 span {
@@ -246,11 +281,8 @@
    EXAMPLE WINS
 ========================= */
 .example-wins1 {
-  margin-top: 60px;
-
-  max-width: 3000px;
-  margin-left: auto;
-  margin-right: auto;
+  width: 100%;
+  margin: 60px auto 0;
 }
 
 .example-wins1 h4 {
@@ -258,33 +290,30 @@
   text-transform: uppercase;
   letter-spacing: 0.2em;
   font-size: 0.9rem;
-  margin-bottom: 30px;
-  margin-left: 120px;
+  margin: 0 0 30px;
 }
 
-/* Cards Container */
-
+/* Wins Grid Center-aligned */
 .example-wins1 .wins-grid1 {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 380px));
-  /* justify-content: center; */
-  gap: 50px;
-  max-width: 2000px;
-  margin-left: 110px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 30px;
+  width: 100%;
+  margin: 0 auto; /* समान अंतरासाठी auto spacing */
 }
-
-/* Card */
 
 .example-wins1 .win-card1 {
   width: 100%;
-  max-width: 380px;
   min-height: 130px;
   padding: 24px;
   border-radius: 20px;
   background: #fff;
-  border: 1px solid rgba(15,23,42,.08);
-  box-shadow: 0 14px 35px rgba(15,23,42,.08);
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  box-shadow: 0 14px 35px rgba(15, 23, 42, 0.08);
+  box-sizing: border-box;
+  transition: transform 0.3s ease;
 }
+
 .win-card1:hover {
   transform: translateY(-6px);
 }
@@ -303,46 +332,89 @@
 }
 
 /* =========================
-   RESPONSIVE
+   RESPONSIVE DESIGN
 ========================= */
 
-@media (max-width:1100px){
-
-  .solutions-grid1{
-      grid-template-columns:repeat(2,1fr);
+/* Large Laptop / Desktop Screens (Max-width: 1200px) */
+@media (max-width: 1200px) {
+  .solutions-section {
+    width: calc(100% - 40px); /* सेंटर्ड अलाइनमेंट आणि दोन्ही बाजूंना समान जागा */
+    margin: 20px auto;
   }
 
-  .wins-grid1{
-      grid-template-columns:repeat(2,320px);
+  .example-wins1 .wins-grid1 {
+    gap: 20px;
   }
-
 }
 
-@media (max-width:768px){
-
-  .solutions-grid1{
-      grid-template-columns:1fr;
+/* Tablet Devices (Max-width: 991px) */
+@media (max-width: 991px) {
+  .solutions-section {
+    padding: 50px 30px 60px;
+    width: calc(100% - 32px);
+    margin: 20px auto;
   }
 
-  .wins-grid1{
-      grid-template-columns:320px;
+  .solutions-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
 
-  .steps{
-      gap:18px;
-      flex-direction:column;
+  .example-wins1 .wins-grid1 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
-
 }
 
-@media (max-width:420px){
-
-  .wins-grid1{
-      grid-template-columns:1fr;
+/* Mobile Devices (Max-width: 768px) */
+@media (max-width: 768px) {
+  .solutions-section {
+    padding: 40px 20px 50px;
+    width: calc(100% - 24px); /* दोन्ही बाजूंना समान 12px जागा सोडेल */
+    margin: 15px auto;
   }
 
-  .win-card1:hover{
-      width:100%;
+  .solutions-section h2 {
+    font-size: 24px;
   }
 
+  .close-btn1 {
+    position: relative;
+    right: 0;
+    top: 0;
+    align-self: flex-start;
+  }
+
+  .filter-tags {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .solutions-grid {
+    grid-template-columns: 1fr;
+    max-width: 100%;
+  }
+
+  .example-wins1 .wins-grid1 {
+    grid-template-columns: 1fr;
+    max-width: 100%;
+  }
+
+  .steps1 {
+    gap: 15px;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+/* Small Mobile Devices (Max-width: 480px) */
+@media (max-width: 480px) {
+  .solutions-section {
+    padding: 30px 16px 40px;
+    width: calc(100% - 16px); /* अतिशय लहान स्क्रीनवर दोन्ही बाजूंना 8px चे समान मार्जिन */
+    margin: 10px auto;
+  }
+
+  .win-card1,
+  .solution-card {
+    max-width: 100%;
+  }
 }

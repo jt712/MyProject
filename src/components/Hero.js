@@ -1,14 +1,13 @@
-import React from 'react';
-import { useState } from "react";
+import React from "react";
 import "./Hero.css";
 
-import CareerCounseling from "./CareerCounseling";
-
-
-export default function Hero({ onOpenContact, onOpenSolutions, onOpenSoftwareServices, setActiveSection, onOpenTraining }) {
-
-    const [showPopup, setShowPopup] = useState(false);
-
+export default function Hero({
+  onOpenContact,
+  onOpenSolutions,
+  onOpenSoftwareServices,
+  onOpenTraining,
+  setActiveSection,
+}) {
   return (
     <section className="hero">
       <div className="hero-left">
@@ -24,42 +23,24 @@ export default function Hero({ onOpenContact, onOpenSolutions, onOpenSoftwareSer
 
         {/* Description */}
         <p className="desc">
-          Strategy, architecture, and delivery across the AI lifecycle—rapid pilots, production-grade platforms, and teams trained to sustain them.
+          Strategy, architecture, and delivery across the AI lifecycle—rapid
+          pilots, production-grade platforms, and teams trained to sustain them.
         </p>
 
-        {/* CTA Buttons */}
+        {/* CTA Buttons - Scroll to the home contact section */}
         <div className="buttons">
-          <button 
-            className="primary" 
+          <button
+            className="primary"
             onClick={() =>
-    document
-      .getElementById("contact")
-      ?.scrollIntoView({ behavior: "smooth" })
-  }
+              document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })
+            }
           >
             Start a project
           </button>
-          <button 
-            className="secondary"
-             onClick={() =>
-    document
-      .getElementById("offerings")
-      ?.scrollIntoView({ behavior: "smooth" })
-  }
-          >
+          <button className="secondary" onClick={onOpenSolutions}>
             Explore offerings
           </button>
-
-            {/* <img src="/images/AI1.png" alt="Hero" className="AI-image"  onClick={() => setShowPopup(!showPopup)}/>
-            {showPopup && (
-        <div className="career-popup-wrapper">
-          <CareerCounseling onClose={() => setShowPopup(false)} />
         </div>
-      )} */}
-
-        </div>
-
-
 
         {/* Stats Cards */}
         <div className="stats">
@@ -91,31 +72,34 @@ export default function Hero({ onOpenContact, onOpenSolutions, onOpenSoftwareSer
           </ul>
         </div>
 
-        {/* Service Boxes */}
+        {/* Service Boxes - Direct Instant Click */}
         <div className="service-box">
           <div
             className="service service1"
             onClick={onOpenSolutions}
-  role="button"
-  tabIndex={0}
+            role="button"
+            tabIndex={0}
           >
             AI/ML/GENAI Solutions
           </div>
-          <div className="service service2"  onClick={onOpenTraining}
-  role="button"
-  tabIndex={0}>
+
+          <div
+            className="service service2"
+            onClick={onOpenTraining}
+            role="button"
+            tabIndex={0}
+          >
             Training & Consulting
           </div>
-         
 
-          <div className="service service3" onClick={onOpenSoftwareServices}
-  role="button"
-  tabIndex={0}  >
+          <div
+            className="service service3"
+            onClick={onOpenSoftwareServices}
+            role="button"
+            tabIndex={0}
+          >
             Software Solutions & Services
-                    {/* <img src="/images/AI1.png" alt="Hero" className="AI-image" /> */}
-
           </div>
-          
         </div>
       </div>
     </section>

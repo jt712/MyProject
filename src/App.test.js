@@ -1,6 +1,13 @@
+import React from 'react';
 import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 import Login from './components/login';
+import Home from './pages/Home';
+
+jest.mock('react-markdown', () => ({
+  __esModule: true,
+  default: ({ children }) => <>{children}</>,
+}));
 
 describe('Login', () => {
   afterEach(() => {
@@ -32,5 +39,33 @@ describe('Login', () => {
     await waitFor(() => {
       expect(screen.getByText(/unauthorized/i)).toBeInTheDocument();
     });
+  });
+});
+
+describe('Home', () => {
+  test('opens Career Counselling from the navbar', () => {
+    render(
+      <MemoryRouter>
+        <Home />
+      </MemoryRouter>
+    );
+
+    fireEvent.click(screen.getByRole('button', { name: /talk to us/i }));
+
+    expect(screen.getByRole('heading', { name: /career counseling/i })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: /ask a question/i })).toBeInTheDocument();
+  });
+
+  test('opens Career Counselling from the Engage section', () => {
+    render(
+      <MemoryRouter>
+        <Home />
+      </MemoryRouter>
+    );
+
+    fireEvent.click(screen.getByRole('button', { name: /talk with us/i }));
+
+    expect(screen.getByRole('heading', { name: /career counseling/i })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: /ask a question/i })).toBeInTheDocument();
   });
 });

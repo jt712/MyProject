@@ -4,11 +4,11 @@
   border-radius: 16px;
   padding: 20px;
   min-height: 260px;
-   display: flex; 
+  display: flex; 
   flex-direction: column; 
   justify-content: space-between;
   box-sizing: border-box;
-  width: 450px;
+  width: min(100%, 420px);
 }
 
 .duration {
@@ -45,4 +45,57 @@
 .course-card button:hover {
   opacity: 0.96;
   transform: translateY(-1px);
+}
+
+/* =========================
+   RESPONSIVE DESIGN (Desktop, Laptop, Tablet, Mobile)
+========================= */
+
+/* Desktop is handled by the default CSS above */
+
+/* Laptop Devices (Max-width: 1200px) */
+@media (max-width: 1200px) {
+  .course-card {
+    width: 100%;
+    max-width: 450px; /* Prevents overflow while allowing it to fluidly fill grid columns */
+  }
+}
+
+/* Tablet Devices (Max-width: 991px) */
+@media (max-width: 991px) {
+  .course-card {
+    padding: 18px;
+    min-height: 240px;
+  }
+}
+
+/* Mobile Devices (Max-width: 768px) */
+@media (max-width: 768px) {
+  .course-card {
+    padding: 16px;
+    min-height: auto; /* Allow content to dictate height */
+  }
+  
+  .course-card h3 {
+    font-size: 1rem;
+    margin-bottom: 12px;
+  }
+
+  .course-card p {
+    font-size: 0.95rem;
+    margin-bottom: 16px;
+  }
+}
+
+/* Small Mobile Devices (Max-width: 480px) */
+@media (max-width: 480px) {
+  .course-card {
+    padding: 14px;
+    border-radius: 12px;
+  }
+
+  .course-card button {
+    width: 100%; /* Full width button for easier thumb tapping */
+    padding: 12px;
+  }
 }

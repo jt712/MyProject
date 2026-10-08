@@ -2,116 +2,77 @@ import React, { useState } from "react";
 import Navbar from "../components/Navbar";
 import Hero from "../components/Hero";
 import Offerings from "../components/Offerings";
-import SolutionsSection from "../components/SolutionsSection";
-import SoftwareServices from "../components/SoftwareServices";
 import ContactForm from "../components/ContactForm";
 import Capabilities from "../components/Capabilities";
 import ProofSection from "../components/ProofSection";
 import EngageSection from "../components/EngageSection";
 import Footer from "../components/Footer";
 import Products from "../components/Products";
-import TrainingPlanner from "../components/TrainingPlanner/TrainingPlanner";
 import ChatWidget from "../components/ChatWidget";
+import CareerCounseling from "../components/CareerCounseling";
 
-
-
-export default function Home(  { onOpenSolutions})
- {
-  const [showSolutions, setShowSolutions] = useState(false);
-  const [showSoftwareServices, setShowSoftwareServices] = useState(false);
-  const [showContact, setShowContact] = useState(false);
+export default function Home() {
+  const [activeOffering, setActiveOffering] = useState(null);
+  const [showCareerCounselling, setShowCareerCounselling] = useState(false);
   const [, setActiveSection] = useState("hero");
-  const [showPlanner, setShowPlanner] = useState(false);
 
-
+  const openContactSection = () => {
+    setShowCareerCounselling(false);
+    setTimeout(() => {
+      document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
+    }, 0);
+  };
 
   return (
     <>
-      <Navbar setActiveSection={setActiveSection} />
- {/* {activeSection === "capabilities" && (
-        <Capabilities />
-      )} */}
+      <Navbar
+        setActiveSection={setActiveSection}
+        onOpenCareerCounselling={() => setShowCareerCounselling(true)}
+      />
 
-      <Hero   
-      onOpenSolutions={() => setShowSolutions(true)}
-      onOpenTraining={() => setShowPlanner(true)}
-      onOpenSoftwareServices={() =>
-        setShowSoftwareServices(true)
-      }
-      onOpenContact={() => setShowContact(true)}
-       setActiveSection={setActiveSection} />
-        {showContact && (
-        <ContactForm />
-      )}
+      <Hero
+        onOpenSolutions={() => setActiveOffering("solutions")}
+        onOpenTraining={() => setActiveOffering("planner")}
+        onOpenSoftwareServices={() => setActiveOffering("software")}
+        onOpenContact={openContactSection}
+        setActiveSection={setActiveSection}
+      />
 
+      {/* Offerings Section च्या आतच आपण Detail Views दाखवणार आहोत */}
       <section id="offerings">
         <Offerings
-          onOpenSolutions={() => setShowSolutions(true)}
-          onOpenTraining={() => setShowPlanner(true)}
-          onOpenSoftwareServices={() =>
-            setShowSoftwareServices(true)
-          }
+          activeOffering={activeOffering}
+          setActiveOffering={setActiveOffering}
         />
       </section>
-
-      {showSolutions && (
-        <section id="solutions">
-          <SolutionsSection  onClose={() =>
-              setShowSolutions(false)
-            }/>
-        </section>
-      )}
-
-      {showPlanner && (
-  <section id="training-consulting">
-    <TrainingPlanner
-      onClose={() => setShowPlanner(false)}
-    />
-  </section>
-)}
-
-      {showSoftwareServices && (
-        <section id="software-services">
-          <SoftwareServices
-            onClose={() =>
-              setShowSoftwareServices(false)
-            }
-          />
-        </section>
-
-      )}
-
-      {/* <section id="solutions">
-  <SolutionsSection />
-</section> */}
-
-  
 
       <section id="products">
         <Products />
       </section>
 
       <section id="capabilities">
-  <Capabilities />
-</section>
+        <Capabilities />
+      </section>
 
-  
-   <section id="case-studies">
-    <ProofSection />
-   </section>
+      <section id="case-studies">
+        <ProofSection />
+      </section>
 
-<EngageSection />
+      <EngageSection onOpenCareerCounselling={() => setShowCareerCounselling(true)} />
 
+      <section id="contact">
+        <ContactForm />
+      </section>
 
-   <section id="contact">
-  <ContactForm />
-</section>
+      {showCareerCounselling && (
+        <CareerCounseling
+          onClose={() => setShowCareerCounselling(false)}
+          onEnquire={openContactSection}
+        />
+      )}
 
-
-
-<Footer setActiveSection={setActiveSection} />
-
-      <ChatWidget />
+      <Footer setActiveSection={setActiveSection} />
+      <ChatWidget onEnquire={openContactSection} />
     </>
   );
 }

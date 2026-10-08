@@ -36,7 +36,7 @@ const products = [
     description:
       "AI-powered counselling solution that provides personalized guidance, recommendations, and intelligent answers based on user requirements.",
   button: "Explore Agent →",
-  path: "/counsellor",
+  path: "/aicounsellor",
 },
 
 {
@@ -169,7 +169,8 @@ function Signup() {
   console.log("Signup User Data:", userData);
 
   try {
-   const response = await fetch("http://localhost:8080/api/auth/signup", {
+  //  const response = await fetch("http://localhost:8080/api/auth/signup", {
+   const response = await fetch("https://dnyanaihelpme-medical-billing-system.hf.space/api/auth/dnyanaisignup", {
   method: "POST",
   headers: {
     "Content-Type": "application/json",

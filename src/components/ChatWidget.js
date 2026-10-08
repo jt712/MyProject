@@ -1,21 +1,29 @@
-import React from "react";
+import React, { useState } from "react";
+import CareerCounseling from "./CareerCounseling";
 import "./ChatWidget.css";
 
-import { useState } from "react";
-import CareerCounseling from "./CareerCounseling";
-
-function ChatWidget() {
-
-   const [showPopup, setShowPopup] = useState(false);
-  
+function ChatWidget({ onEnquire }) {
+  const [showPopup, setShowPopup] = useState(false);
 
   return (
-    <div className="chat-widget">
-       <img src="/images/AI1.png" alt="Hero" className="AI-image"  onClick={() => setShowPopup(!showPopup)}/>
-            {showPopup && (
-        <div className="career-popup-wrapper">
-          <CareerCounseling onClose={() => setShowPopup(false)} />
-        </div>
+    <div className="chat-widget-container">
+      {/* Floating Trigger Button */}
+      <div 
+        className="chat-widget-button"
+        onClick={() => setShowPopup(!showPopup)}
+        role="button"
+        tabIndex={0}
+        aria-label="Open Chat"
+      >
+        <img src="/images/AI1.png" alt="AI Assistant" className="AI-image" />
+      </div>
+
+      {/* Render Popup inside Backdrop */}
+      {showPopup && (
+        <CareerCounseling
+          onClose={() => setShowPopup(false)}
+          onEnquire={onEnquire}
+        />
       )}
     </div>
   );

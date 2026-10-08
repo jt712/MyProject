@@ -1,7 +1,7 @@
 import React from "react";
 import "./SoftwareServices.css";
 
-export default function SoftwareServices({ onClose }) {
+export default function SoftwareServices({ onClose, onOpenContact }) {
   const services = [
     {
       tag: "Web & SaaS Apps",
@@ -27,18 +27,18 @@ export default function SoftwareServices({ onClose }) {
       ],
       link: "Start a mobile build"
     },
-    {
-      tag: "Web Presence & Domains",
-      icon: "🏠",
-      title: "Sites that convert",
-      desc: "For marketing, docs and launches.",
-      points: [
-        "Domain, DNS, SSL hosting",
-        "SEO and accessibility",
-        "Landing pages and docs hubs"
-      ],
-      link: "Refresh our site"
-    },
+    // {
+    //   tag: "Web Presence & Domains",
+    //   icon: "🏠",
+    //   title: "Sites that convert",
+    //   desc: "For marketing, docs and launches.",
+    //   points: [
+    //     "Domain, DNS, SSL hosting",
+    //     "SEO and accessibility",
+    //     "Landing pages and docs hubs"
+    //   ],
+    //   link: "Refresh our site"
+    // },
     {
       tag: "APIs & Integrations",
       icon: "🔧",
@@ -96,7 +96,7 @@ export default function SoftwareServices({ onClose }) {
          to launch.
       </h1>
 </div>
-      <p className="subtitle" style={{ fontSize:"17px", marginLeft:"120px", }}>
+      <p className="subtitle">
         Web, mobile, domains, integrations,
         and production reliability.
       </p>
@@ -132,9 +132,9 @@ export default function SoftwareServices({ onClose }) {
               )}
             </ul>
 
-            <a href="/">
+            <button type="button" className="service-link" onClick={onOpenContact}>
               {item.link} →
-            </a>
+            </button>
           </div>
         ))}
       </div>

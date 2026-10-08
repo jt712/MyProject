@@ -1,62 +1,69 @@
 body {
- background:
+  background:
     radial-gradient(circle at top left, rgba(56, 189, 248, 0.16), transparent 24%),
     linear-gradient(180deg, #041828 0%, #062640 100%);
   color: white;
   font-family: Inter, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.planner{
-    max-width: 3000px;
-    width: 100%;
-    margin: 0 auto;
-    padding: 60px;
+*, *::before, *::after {
+  box-sizing: border-box;
 }
 
-
-
-.planner-description{
-    /* display:flex; */
-    /* justify-content:space-between; */
-    /* align-items:flex-start; */
-    gap:80px;
+.planner {
+  max-width: 1400px; /* Ultra-wide स्क्रीनसाठी योग्य मॅक्स विड्थ */
+  width: 100%;
+  margin: 0 auto;
+  padding: 60px 30px;
 }
 
-.planner-description p{
-    flex:1;
-    color:#9ea8b8;
-    font-size:18px;
-    margin:0;
-    max-width:2000px;
+.planner-description {
+  gap: 80px;
 }
 
-.planner-title {
-    color: #ffffff;
-    font-size: 18px;
-    font-weight: 400;
-    line-height: 1.15;
-    margin-bottom: 32px;
-    margin-right: 0px;
-    white-space: nowrap;
-    background: transparent;
-    border: none;
-    border-radius: 0;
-    box-shadow: none;
-    padding: 0;
-    display: block;
+.planner-description p {
+  flex: 1;
+  color: #9ea8b8;
+  font-size: 18px;
+  margin: 0;
+  max-width: 100%;
+  line-height: 1.7;
+}
+
+.planner-hero {
+  position: relative;
+}
+
+.planner-hero .planner-title1 {
+  color: #ffffff;
+  font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+  font-weight: 500;
+  line-height: 1.25;
+  margin: 16px 0 32px;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  padding: 0;
+  display: block;
+  white-space: normal; /* मोबाईलवर मजकूर कापला जाऊ नये म्हणून wrap केला */
+  word-wrap: break-word;
 }
 
 .planner-hero h1 {
-  font-size: 64px;
+  font-size: clamp(2rem, 4vw, 3.5rem);
   font-weight: 700;
   margin: 15px 0;
+  line-height: 1.2;
 }
 
 .planner-hero p {
   color: #9ea8b8;
+  line-height: 1.6;
 }
-
-
 
 .tag {
   color: #3fd4ff;
@@ -64,8 +71,54 @@ body {
   font-weight: 700;
 }
 
-.tag h1{
+.tag h1 {
   margin-left: 0%;
+}
+
+.planner-topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 16px;
+  width: 100%;
+}
+
+.planner-tag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 150px;
+  height: 38px;
+  padding: 0 18px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(63, 212, 255, 0.4);
+  color: #3fd4ff;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  box-shadow: 0 0 0 1px rgba(255,255,255,0.06) inset;
+}
+
+.close-btn3 {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 8px 18px;
+  border: none;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.12);
+  color: #fff;
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.2s ease;
+  z-index: 10;
+}
+
+.close-btn3:hover {
+  transform: translateY(-2px);
+  background: rgba(255, 255, 255, 0.18);
 }
 
 .filters {
@@ -82,94 +135,299 @@ body {
   border: 1px solid #243447;
   border-radius: 10px;
   color: white;
+  padding: 0 12px;
+  outline: none;
+  font-size: 14px;
 }
 
 .goal-box {
   margin-top: 20px;
-  
 }
 
-.goal-box label{
-  color: black;
+.goal-box label {
+  color: #cbd5e1;
+  display: block;
+  margin-bottom: 8px;
+  font-size: 14px;
+  font-weight: 600;
 }
 
 .goal-box textarea {
   width: 100%;
   height: 120px;
-  background: white;
+  background: #ffffff;
   border: 1px solid #243447;
   border-radius: 10px;
-  color: black;
+  color: #000;
+  padding: 12px;
+  font-size: 15px;
+  outline: none;
+  box-sizing: border-box;
 }
 
 .cards-grid {
   margin-top: 30px;
   display: grid;
-  grid-template-columns: repeat(3, 450px);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   justify-content: center;
-  gap: 24px;
+  gap: 26px;
   align-items: stretch;
 }
 
-/* Responsive fallbacks */
-@media (max-width: 1400px) {
-  .cards-grid {
-    grid-template-columns: repeat(2, 450px);
-    justify-content: center;
-  }
-}
-
-@media (max-width: 980px) {
-  .cards-grid {
-    grid-template-columns: 450px;
-    justify-content: center;
-  }
-}
-
-@media (max-width: 520px) {
-  .cards-grid {
-    grid-template-columns: 100%;
-    padding: 0 16px;
-    box-sizing: border-box;
-  }
-}
-
-.heading{
+.heading {
   color: aqua;
 }
 
-.planner-hero{
-    position:relative;
+/* =========================================================
+   UPDATED RESPONSIVE DESIGN (Desktop, Laptop, Tablet, Mobile)
+   ========================================================= */
+
+/* 1. Large Laptops / Standard Desktops (1280px to 1440px) */
+@media (max-width: 1440px) {
+  .planner {
+    max-width: 1200px;
+  }
+  
+  .cards-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+  }
 }
 
-.planner-topbar {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    gap: 16px;
-    margin-bottom: 16px;
+/* 2. Small Laptops & Medium Screens (1025px to 1200px) */
+@media (max-width: 1200px) {
+  .planner {
+    padding: 50px 30px;
+  }
+
+  .filters {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .cards-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px;
+  }
+  
+  .planner-description {
+    gap: 40px;
+  }
 }
 
-.planner-tag {
-    color: #3fd4ff;
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
+/* 3. Tablets (769px to 1024px) */
+@media (max-width: 1024px) {
+  .planner {
+    padding: 40px 24px;
+  }
+
+  .filters {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .cards-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .planner-description p {
+    font-size: 16px;
+  }
+
+  .close-btn3 {
+    top: -5px;
+    right: 0;
+  }
 }
 
-.close-btn3 {
+/* 4. Small Tablets & Large Mobiles (561px to 768px) */
+@media (max-width: 768px) {
+  .planner {
+    padding: 30px 20px;
+  }
+
+  .planner-topbar {
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .filters {
+    grid-template-columns: 1fr; /* सर्व फिल्टर एकाखाली एक */
+    gap: 14px;
+  }
+
+  .cards-grid {
+    grid-template-columns: 1fr; /* कार्ड्स एकाच कॉलममध्ये सेंटर्ड होतील */
+    justify-items: center;
+    gap: 20px;
+  }
+
+  .close-btn3 {
+    position: relative;
+    top: auto;
+    right: auto;
+    align-self: flex-start;
+    margin-top: 10px;
+  }
+}
+
+/* 5. Mobile Devices (Up to 560px) */
+@media (max-width: 560px) {
+  .planner {
+    padding: 24px 16px;
+  }
+
+  .planner-hero h1 {
+    font-size: 1.8rem;
+  }
+  
+  .planner-hero .planner-title1 {
+    font-size: 18px;
+    margin: 12px 0 20px;
+  }
+
+  .goal-box textarea {
+    height: 100px;
+  }
+
+  .planner-tag {
+    min-width: 120px;
+    height: 34px;
+    font-size: 10px;
+  }
+}
+
+/* =========================
+   CURRICULUM MODAL STYLES
+========================= */
+.curriculum-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(4, 24, 40, 0.85);
+  backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.curriculum-modal {
+  background: #062640;
+  border: 1px solid rgba(56, 189, 248, 0.3);
+  border-radius: 20px;
+  padding: 32px;
+  max-width: 550px;
+  width: 100%;
+  color: #ffffff;
+  position: relative;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.6);
+  animation: modalFadeIn 0.25s ease-out;
+}
+
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.modal-close-btn {
   position: absolute;
   top: 20px;
-  right: 5px;
+  right: 20px;
+  background: rgba(255, 255, 255, 0.1);
   border: none;
-  border-radius: 999px;
-  background: rgba(255,255,255,0.12);
   color: #fff;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
+.modal-close-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
 
-.close-btn3:hover {
-  transform: translateY(-2px);
-  background: rgba(255, 255, 255, 0.18);
+.curriculum-modal h2 {
+  margin: 12px 0 8px;
+  font-size: 24px;
+}
+
+.modal-desc {
+  color: #94a3b8;
+  font-size: 14px;
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+
+.curriculum-modal hr {
+  border: 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  margin: 16px 0;
+}
+
+.curriculum-modal h4 {
+  color: #38bdf8;
+  font-size: 14px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.curriculum-modal ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 24px;
+}
+
+.curriculum-modal li {
+  position: relative;
+  padding-left: 20px;
+  color: #e2e8f0;
+  font-size: 14px;
+  margin-bottom: 8px;
+  line-height: 1.5;
+}
+
+.curriculum-modal li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: #38bdf8;
+  font-weight: bold;
+}
+
+.modal-actions {
+  display: flex;
+  gap: 12px;
+}
+
+.modal-actions .book-btn {
+  background: #38bdf8;
+  color: #0f172a;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.modal-actions .contact-btn {
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
 }

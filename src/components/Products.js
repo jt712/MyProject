@@ -12,6 +12,7 @@ const products = [
     button: "Explore Agent →",
     path: "/educagent",
   },
+ 
   {
     id: "agriculture",
     title: "Optimize Fields with Agriculture Agent",

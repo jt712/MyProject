@@ -16,6 +16,7 @@ import AIAccelerator from "./components/AIAAccelerator";
 import Signup from "./pages/Signup";
 import RagCards from "./components/RagCards";
 import ProtectedAgentRoute from "./components/ProtectedAgentRoute";
+import CounsellorWorkspaceLayout from "./components/CounsellorWorkspaceLayout";
 
 
 function App() {
@@ -56,6 +57,10 @@ function App() {
             </ProtectedAgentRoute>
           }
         />
+        
+        <Route path="/aicounsellor" element={<ProtectedAgentRoute agentId="counsellor">
+          <CounsellorWorkspaceLayout />
+        </ProtectedAgentRoute>} />
 
         <Route
           path="/bankingagent"

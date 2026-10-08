@@ -2,7 +2,7 @@ import React,{ useState } from "react";
 import SolutionCard from "./SolutionCard";
 import "./SolutionsSection.css";
 
-function SolutionsSection({ onClose }) {
+function SolutionsSection({ onClose, onOpenContact }) {
     const [showCards, setShowCards] = useState(false);
 
   const solutions = [
@@ -127,13 +127,14 @@ function SolutionsSection({ onClose }) {
           <SolutionCard
             key={index}
             {...item}
+            onOpenContact={onOpenContact}
           />
         ))}
       </div>
 
       {/* HOW IT WORKS */}
       <div className="how-it-works1">
-        <h4 style={{ marginLeft: "120px", color:"#0ea5e9" }} className="how-it-works-title">HOW IT WORKS</h4>
+        <h4 className="how-it-works-title">HOW IT WORKS</h4>
 
         <div className="steps1">
           <span>Pick a track</span>

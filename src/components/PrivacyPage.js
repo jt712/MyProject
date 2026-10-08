@@ -53,8 +53,8 @@ export default function PrivacyPage() {
       <section className="privacy-hero">
         <div className="hero-image">
           <img
-            src="https://images.unsplash.com/photo-1563986768609-322da13575f3?w=1200"
-            alt="Privacy Security"
+            src="https://images.unsplash.com/photo-1526379095098-d400fd0bf935?auto=format&fit=crop&w=1600&q=80"
+            alt="Privacy and data security"
           />
 
           <div className="hero-content">
@@ -62,11 +62,11 @@ export default function PrivacyPage() {
               PRIVACY & TRUST
             </span>
 
-            <h1 >Your Information, Protected Responsibly</h1>
+            <h1>Your Information, Protected Responsibly</h1>
 
             <p>
-              Learn how DnyanAI collects,
-              uses, and safeguards your data.
+              Learn how DnyanAI collects, uses, and safeguards your data with care,
+              transparency, and secure processing.
             </p>
           </div>
         </div>

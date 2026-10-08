@@ -8,8 +8,8 @@ function RagCards() {
         {
             
   
-  title: "Custom Agentic RAG Workflow Builder",
-  category: "Agentic RAG Workflow Builder",
+  title: "Custom Agentic AI Product/ Accelerator Workflow Builder",
+  category: "Agentic AI Product/ Accelerator Workflow Builder",
   image: "/images/rag-workflow.jfif",
   description:
     "Intelligent workflow builder for creating agentic RAG workflows with document retrieval, AI agents, and LLM-powered responses.",

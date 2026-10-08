@@ -269,3 +269,213 @@
   border-radius: 14px;
   font-weight: 600;
 }
+
+/* ===================================================
+   RESPONSIVE MEDIA QUERIES (ADD AT THE BOTTOM OF CSS)
+   =================================================== */
+
+/* --- 1. Extra Large Screens / Desktop (1400px and up) --- */
+@media screen and (min-width: 1400px) {
+  .terms-content {
+    max-width: 1300px;
+  }
+}
+
+/* --- 2. Laptops & Standard Desktops (1024px to 1399px) --- */
+@media screen and (max-width: 1399px) {
+  .terms-content {
+    max-width: 1000px;
+    padding: 60px 30px;
+  }
+
+  .hero-content h1 {
+    font-size: 56px;
+  }
+}
+
+/* --- 3. Tablets & Small Laptops (768px to 1023px) --- */
+@media screen and (max-width: 1023px) {
+  .terms-navbar {
+    padding: 0 24px;
+    height: 70px;
+  }
+
+  .terms-hero {
+    height: 320px;
+  }
+
+  .hero-content h1 {
+    font-size: 44px;
+  }
+
+  .hero-content p {
+    font-size: 18px;
+  }
+
+  .terms-content {
+    padding: 50px 24px;
+  }
+
+  .terms-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .intro-card {
+    padding: 30px;
+    margin-bottom: 35px;
+  }
+
+  .intro-card h2 {
+    font-size: 26px;
+  }
+
+  .term-card {
+    padding: 24px;
+  }
+
+  .term-card h3 {
+    font-size: 20px;
+  }
+
+  .contact-section-terms {
+    padding: 50px 24px 80px;
+  }
+
+  .contact-card-terms {
+    padding: 40px 30px;
+  }
+
+  .contact-card-terms h2 {
+    font-size: 32px;
+  }
+}
+
+/* --- 4. Mobile Devices (Up to 767px) --- */
+@media screen and (max-width: 767px) {
+  .terms-navbar {
+    padding: 0 16px;
+    height: 65px;
+  }
+
+  .terms-logo {
+    width: 38px;
+    height: 38px;
+  }
+
+  .terms-nav-left {
+    gap: 10px;
+  }
+
+  .terms-nav-left h3 {
+    font-size: 16px;
+  }
+
+  .terms-nav-right {
+    gap: 8px;
+  }
+
+  .nav-back-btn,
+  .nav-contact-btn {
+    padding: 8px 12px;
+    font-size: 12px;
+    border-radius: 8px;
+  }
+
+  .terms-hero {
+    height: 280px;
+    padding: 0 16px;
+  }
+
+  .hero-tag {
+    font-size: 12px;
+  }
+
+  .hero-content h1 {
+    font-size: 32px;
+    margin: 12px 0;
+  }
+
+  .hero-content p {
+    font-size: 15px;
+  }
+
+  .terms-content {
+    padding: 35px 16px;
+  }
+
+  .intro-card {
+    padding: 20px;
+    margin-bottom: 25px;
+  }
+
+  .intro-card h2 {
+    font-size: 22px;
+  }
+
+  .intro-card p {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  /* Grid to 1 column for Mobile */
+  .terms-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .term-card {
+    padding: 20px;
+  }
+
+  .term-card h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+
+  .term-card p {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  .contact-section-terms {
+    padding: 30px 16px 60px;
+  }
+
+  .contact-card-terms {
+    padding: 30px 20px;
+  }
+
+  .contact-card-terms h2 {
+    font-size: 24px;
+    margin-bottom: 12px;
+  }
+
+  .contact-card-terms p {
+    font-size: 14px;
+    margin-bottom: 20px;
+  }
+
+  .contact-btn {
+    padding: 12px 22px;
+    font-size: 14px;
+    border-radius: 10px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+}
+
+/* --- 5. Small Mobile Devices (Up to 400px) --- */
+@media screen and (max-width: 400px) {
+  .terms-nav-left h3 {
+    display: none; /* अतिलहान स्क्रीनवर जागा वाचवण्यासाठी Logo राहील */
+  }
+
+  .hero-content h1 {
+    font-size: 28px;
+  }
+
+  .hero-content p {
+    font-size: 13px;
+  }
+}

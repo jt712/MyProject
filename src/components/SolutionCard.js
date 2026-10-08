@@ -7,6 +7,7 @@ function SolutionCard({
   points,
   linkText,
   icon,
+  onOpenContact,
 }) {
   return (
     <div className="solution-card">
@@ -27,7 +28,9 @@ function SolutionCard({
         ))}
       </ul>
 
-      <a href="/">{linkText} →</a>
+      <button type="button" className="solution-card-link" onClick={onOpenContact}>
+        {linkText} →
+      </button>
     </div>
   );
 }
